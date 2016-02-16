@@ -1,0 +1,518 @@
+#
+# VulKan ToolS meshes.
+#
+
+submesh_library valley_terrain_submeshes.vkts
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_31
+
+submesh Terrain_Patch_Mesh_31_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_59
+
+submesh Terrain_Patch_Mesh_59_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_01
+
+submesh Terrain_Patch_Mesh_01_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_03
+
+submesh Terrain_Patch_Mesh_03_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_11
+
+submesh Terrain_Patch_Mesh_11_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_52
+
+submesh Terrain_Patch_Mesh_52_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_13
+
+submesh Terrain_Patch_Mesh_13_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_02
+
+submesh Terrain_Patch_Mesh_02_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_08
+
+submesh Terrain_Patch_Mesh_08_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_36
+
+submesh Terrain_Patch_Mesh_36_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_15
+
+submesh Terrain_Patch_Mesh_15_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_05
+
+submesh Terrain_Patch_Mesh_05_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_56
+
+submesh Terrain_Patch_Mesh_56_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_17
+
+submesh Terrain_Patch_Mesh_17_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_41
+
+submesh Terrain_Patch_Mesh_41_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_40
+
+submesh Terrain_Patch_Mesh_40_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_19
+
+submesh Terrain_Patch_Mesh_19_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_04
+
+submesh Terrain_Patch_Mesh_04_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_60
+
+submesh Terrain_Patch_Mesh_60_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_33
+
+submesh Terrain_Patch_Mesh_33_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_21
+
+submesh Terrain_Patch_Mesh_21_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_57
+
+submesh Terrain_Patch_Mesh_57_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_46
+
+submesh Terrain_Patch_Mesh_46_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_62
+
+submesh Terrain_Patch_Mesh_62_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_23
+
+submesh Terrain_Patch_Mesh_23_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_38
+
+submesh Terrain_Patch_Mesh_38_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_64
+
+submesh Terrain_Patch_Mesh_64_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_25
+
+submesh Terrain_Patch_Mesh_25_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_48
+
+submesh Terrain_Patch_Mesh_48_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_27
+
+submesh Terrain_Patch_Mesh_27_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_54
+
+submesh Terrain_Patch_Mesh_54_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_06
+
+submesh Terrain_Patch_Mesh_06_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_43
+
+submesh Terrain_Patch_Mesh_43_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_50
+
+submesh Terrain_Patch_Mesh_50_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_29
+
+submesh Terrain_Patch_Mesh_29_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_09
+
+submesh Terrain_Patch_Mesh_09_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_63
+
+submesh Terrain_Patch_Mesh_63_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_44
+
+submesh Terrain_Patch_Mesh_44_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_10
+
+submesh Terrain_Patch_Mesh_10_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_07
+
+submesh Terrain_Patch_Mesh_07_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_51
+
+submesh Terrain_Patch_Mesh_51_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_12
+
+submesh Terrain_Patch_Mesh_12_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_53
+
+submesh Terrain_Patch_Mesh_53_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_14
+
+submesh Terrain_Patch_Mesh_14_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_55
+
+submesh Terrain_Patch_Mesh_55_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_16
+
+submesh Terrain_Patch_Mesh_16_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_39
+
+submesh Terrain_Patch_Mesh_39_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_18
+
+submesh Terrain_Patch_Mesh_18_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_37
+
+submesh Terrain_Patch_Mesh_37_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_32
+
+submesh Terrain_Patch_Mesh_32_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_20
+
+submesh Terrain_Patch_Mesh_20_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_35
+
+submesh Terrain_Patch_Mesh_35_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_61
+
+submesh Terrain_Patch_Mesh_61_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_22
+
+submesh Terrain_Patch_Mesh_22_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_42
+
+submesh Terrain_Patch_Mesh_42_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_45
+
+submesh Terrain_Patch_Mesh_45_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_24
+
+submesh Terrain_Patch_Mesh_24_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_34
+
+submesh Terrain_Patch_Mesh_34_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_26
+
+submesh Terrain_Patch_Mesh_26_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_58
+
+submesh Terrain_Patch_Mesh_58_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_47
+
+submesh Terrain_Patch_Mesh_47_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_49
+
+submesh Terrain_Patch_Mesh_49_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_28
+
+submesh Terrain_Patch_Mesh_28_0
+
+#
+# Mesh.
+#
+
+name Terrain_Patch_Mesh_30
+
+submesh Terrain_Patch_Mesh_30_0
+

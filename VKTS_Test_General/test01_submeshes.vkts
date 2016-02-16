@@ -1,0 +1,47 @@
+#
+# Test submesh 01
+#
+
+material_library test01_materials.vkts
+
+name test_submesh_01
+
+vertex -1.0 0.0 0.0 1.0
+vertex 1.0 0.0 0.0 1.0
+vertex 0.0 1.0 0.0 1.0
+
+normal 0.0 0.0 1.0
+normal 0.0 0.0 1.0
+normal 0.0 0.0 1.0
+
+bitangent 0.0 1.0 0.0
+bitangent 0.0 1.0 0.0
+bitangent 0.0 1.0 0.0
+
+tangent 1.0 0.0 0.0
+tangent 1.0 0.0 0.0
+tangent 1.0 0.0 0.0
+
+texcoord 0.0 0.0
+texcoord 1.0 0.0
+texcoord 0.5 1.0
+
+#boneIndex 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+#boneIndex 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+#boneIndex 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+
+#boneWeight 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+#boneWeight 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+#boneWeight 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+
+#numberBones 0.0
+#numberBones 0.0
+#numberBones 0.0
+
+face 0 1 2
+
+material test_material_01
+
+#
+# Add more sub meshes here.
+#

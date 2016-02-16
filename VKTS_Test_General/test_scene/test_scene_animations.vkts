@@ -1,0 +1,57 @@
+#
+# VulKan ToolS animations.
+#
+
+channel_library test_scene_channels.vkts
+
+#
+# Animation.
+#
+
+name animation_MiddleBone
+
+start 0.000000
+stop 1.000000
+
+# Rotate.
+
+channel channel_ROTATE_X_MiddleBone
+channel channel_ROTATE_Y_MiddleBone
+channel channel_ROTATE_Z_MiddleBone
+
+#
+# Animation.
+#
+
+name animation_EndBone
+
+start 0.000000
+stop 1.000000
+
+# Rotate.
+
+channel channel_ROTATE_X_EndBone
+channel channel_ROTATE_Y_EndBone
+channel channel_ROTATE_Z_EndBone
+
+#
+# Animation.
+#
+
+name animation_AnotherCube
+
+start 0.000000
+stop 1.000000
+
+# Translate.
+
+channel channel_TRANSLATE_Z_AnotherCube
+
+# Rotate.
+
+channel channel_ROTATE_Y_AnotherCube
+
+# Scale.
+
+channel channel_SCALE_X_AnotherCube
+

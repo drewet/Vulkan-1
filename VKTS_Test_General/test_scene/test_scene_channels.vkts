@@ -1,0 +1,120 @@
+#
+# VulKan ToolS channels.
+#
+
+#
+# Channel.
+#
+
+name channel_ROTATE_X_MiddleBone
+
+target_transform ROTATE
+target_element X
+
+keyframe 0.000000 45.000001 BEZIER -0.195206 45.000001 0.195206 45.000001
+keyframe 0.500000 0.000000 BEZIER 0.304794 0.000000 0.695206 0.000000
+keyframe 1.000000 45.000001 BEZIER 0.804794 45.000001 1.195206 45.000001
+
+#
+# Channel.
+#
+
+name channel_ROTATE_Y_MiddleBone
+
+target_transform ROTATE
+target_element Y
+
+keyframe 0.000000 -0.000000 BEZIER -0.195206 -0.000000 0.195206 -0.000000
+keyframe 0.500000 -0.000000 BEZIER 0.304794 -0.000000 0.695206 -0.000000
+keyframe 1.000000 -0.000000 BEZIER 0.804794 -0.000000 1.195206 -0.000000
+
+#
+# Channel.
+#
+
+name channel_ROTATE_Z_MiddleBone
+
+target_transform ROTATE
+target_element Z
+
+keyframe 0.000000 0.000000 BEZIER -0.195206 0.000000 0.195206 0.000000
+keyframe 0.500000 0.000000 BEZIER 0.304794 0.000000 0.695206 0.000000
+keyframe 1.000000 0.000000 BEZIER 0.804794 0.000000 1.195206 0.000000
+
+#
+# Channel.
+#
+
+name channel_ROTATE_X_EndBone
+
+target_transform ROTATE
+target_element X
+
+keyframe 0.000000 45.000001 BEZIER -0.195206 45.000001 0.195206 45.000001
+keyframe 0.500000 0.000000 BEZIER 0.304794 0.000000 0.695206 0.000000
+keyframe 1.000000 45.000001 BEZIER 0.804794 45.000001 1.195206 45.000001
+
+#
+# Channel.
+#
+
+name channel_ROTATE_Y_EndBone
+
+target_transform ROTATE
+target_element Y
+
+keyframe 0.000000 -0.000000 BEZIER -0.195206 -0.000000 0.195206 -0.000000
+keyframe 0.500000 -0.000000 BEZIER 0.304794 -0.000000 0.695206 -0.000000
+keyframe 1.000000 0.000000 BEZIER 0.804794 0.000000 1.195206 0.000000
+
+#
+# Channel.
+#
+
+name channel_ROTATE_Z_EndBone
+
+target_transform ROTATE
+target_element Z
+
+keyframe 0.000000 0.000000 BEZIER -0.195206 0.000000 0.195206 0.000000
+keyframe 0.500000 0.000000 BEZIER 0.304794 0.000000 0.695206 0.000000
+keyframe 1.000000 0.000000 BEZIER 0.804794 0.000000 1.195206 0.000000
+
+#
+# Channel.
+#
+
+name channel_TRANSLATE_Z_AnotherCube
+
+target_transform TRANSLATE
+target_element Z
+
+keyframe 0.000000 3.000000 BEZIER -0.195206 3.000000 0.195206 3.000000
+keyframe 0.500000 5.000000 BEZIER 0.304794 5.000000 0.695206 5.000000
+keyframe 1.000000 3.000000 BEZIER 0.804794 3.000000 1.195206 3.000000
+
+#
+# Channel.
+#
+
+name channel_ROTATE_Y_AnotherCube
+
+target_transform ROTATE
+target_element Y
+
+keyframe 0.000000 0.000000 LINEAR
+keyframe 1.000000 360.000010 LINEAR
+
+#
+# Channel.
+#
+
+name channel_SCALE_X_AnotherCube
+
+target_transform SCALE
+target_element X
+
+keyframe 0.000000 1.000000 BEZIER -0.195206 1.000000 0.195206 1.000000
+keyframe 0.500000 2.000000 BEZIER 0.304794 2.000000 0.695206 2.000000
+keyframe 1.000000 1.000000 BEZIER 0.804794 1.000000 1.195206 1.000000
+

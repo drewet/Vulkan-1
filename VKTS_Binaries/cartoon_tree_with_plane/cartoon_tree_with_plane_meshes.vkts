@@ -1,0 +1,47 @@
+#
+# VulKan ToolS meshes.
+#
+
+submesh_library cartoon_tree_with_plane_submeshes.vkts
+
+#
+# Mesh.
+#
+
+name Basement_Mesh
+
+submesh Basement_Mesh_0
+
+#
+# Mesh.
+#
+
+name Plane_Mesh
+
+submesh Plane_Mesh_0
+submesh Plane_Mesh_1
+
+#
+# Mesh.
+#
+
+name Plane_Propeller_Mesh
+
+submesh Plane_Propeller_Mesh_0
+
+#
+# Mesh.
+#
+
+name Trunk_Mesh
+
+submesh Trunk_Mesh_0
+
+#
+# Mesh.
+#
+
+name Leaf_Mesh
+
+submesh Leaf_Mesh_0
+

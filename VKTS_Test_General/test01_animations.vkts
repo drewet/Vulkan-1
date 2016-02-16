@@ -1,0 +1,17 @@
+#
+# Test animation 01
+#
+
+channel_library test01_channels.vkts
+
+name test_animation_01
+
+start 0.0
+
+stop 10.0
+
+channel test_channel_01
+
+#
+# Add more animations here
+#

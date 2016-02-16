@@ -1,0 +1,20 @@
+#
+# VulKan ToolS textures.
+#
+
+#
+# Texture.
+#
+
+name valley_displacement_texture
+
+image_data valley_displacement.tga
+
+#
+# Texture.
+#
+
+name valley_normal_texture
+
+image_data valley_normal.tga
+

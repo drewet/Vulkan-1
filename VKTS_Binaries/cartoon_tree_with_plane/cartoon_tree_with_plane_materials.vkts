@@ -1,0 +1,91 @@
+#
+# VulKan ToolS materials.
+#
+
+texture_library cartoon_tree_with_plane_textures.vkts
+
+#
+# Material.
+#
+
+shading Phong
+
+name Leaf_Material
+
+alpha_texture leaf_texture
+normal_texture leaf_texture
+emissive_color 0.000000 0.000000 0.000000
+displacement_value 0.0
+phong_diffuse_texture leaf_texture
+phong_ambient_color 0.000000 0.000000 0.000000
+phong_specular_color 0.000000 0.000000 0.000000
+phong_specular_shininess_value 49.945098
+
+#
+# Material.
+#
+
+shading Phong
+
+name Plane_Matte_Material
+
+emissive_color 0.000000 0.000000 0.000000
+alpha_value 1.000000
+displacement_value 0.0
+normal_vector 0.0 0.0 1.0
+phong_diffuse_texture plane_texture
+phong_ambient_color 0.000000 0.000000 0.000000
+phong_specular_color 0.152890 0.152890 0.152890
+phong_specular_shininess_value 0.250980
+
+#
+# Material.
+#
+
+shading Phong
+
+name Trunk_Material
+
+normal_texture wood_texture
+emissive_color 0.000000 0.000000 0.000000
+alpha_value 1.000000
+displacement_value 0.0
+phong_diffuse_texture wood_texture
+phong_ambient_color 0.000000 0.000000 0.000000
+phong_specular_color 0.000641 0.000641 0.000641
+phong_specular_shininess_value 12.298039
+
+#
+# Material.
+#
+
+shading Phong
+
+name Basement_Material
+
+emissive_color 0.000000 0.000000 0.000000
+alpha_value 1.000000
+displacement_value 0.0
+normal_vector 0.0 0.0 1.0
+phong_ambient_color 0.000000 0.000000 0.000000
+phong_diffuse_color 0.300598 0.132675 0.054703
+phong_specular_color 0.014793 0.014793 0.014793
+phong_specular_shininess_value 12.298039
+
+#
+# Material.
+#
+
+shading Phong
+
+name Plane_Shine_Material
+
+emissive_color 0.000000 0.000000 0.000000
+alpha_value 1.000000
+displacement_value 0.0
+normal_vector 0.0 0.0 1.0
+phong_diffuse_texture plane_texture
+phong_ambient_color 0.000000 0.000000 0.000000
+phong_specular_color 0.247930 0.247930 0.247930
+phong_specular_shininess_value 100.894118
+

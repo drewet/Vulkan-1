@@ -1,0 +1,25 @@
+#
+# Test channel 01
+#
+
+name test_channel_01
+
+target_transform ROTATE
+target_element Y
+
+# Time Value Interpolator
+keyframe 0.0 0.0 LINEAR
+keyframe 5.0 180.0 LINEAR
+keyframe 10.0 360.0 LINEAR
+
+#
+# Add more channels here.
+#
+
+name test_channel_02
+
+target_transform TRANSLATE
+target_element X
+
+keyframe 0.0 0.0 BEZIER 0.0 0.0 0.0 0.0
+keyframe 4.0 100.0 BEZIER 100.0 100.0 100.0 100.0

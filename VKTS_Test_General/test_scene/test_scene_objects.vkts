@@ -1,0 +1,188 @@
+#
+# VulKan ToolS objects.
+#
+
+mesh_library test_scene_meshes.vkts
+
+animation_library test_scene_animations.vkts
+
+#
+# Object.
+#
+
+name Suzanne
+
+# Node.
+
+node Suzanne -
+
+translate -4.000000 0.000000 -4.000000
+rotate 0.000000 0.000000 0.000000
+scale 1.000000 1.000000 1.000000
+
+mesh Suzanne
+
+#
+# Object.
+#
+
+name Cylinder_Armature
+
+# Node.
+
+node Cylinder_Armature -
+
+translate -6.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 -0.000000
+scale 1.000000 1.000000 1.000000
+
+joints 3
+
+# Node.
+
+node RootBone Cylinder_Armature
+
+translate 0.000000 0.000000 0.000000
+rotate 0.000000 -0.000000 0.000000
+scale 1.000000 1.000000 1.000000
+
+jointIndex 0
+
+bind_translate 0.000000 0.000000 0.000000
+bind_rotate 0.000000 -0.000000 0.000000
+bind_scale 1.000000 1.000000 1.000000
+
+# Node.
+
+node MiddleBone RootBone
+
+translate 0.000000 0.000000 0.000000
+rotate 45.000005 -0.000000 0.000000
+scale 1.000000 1.000000 1.000000
+
+jointIndex 1
+
+bind_translate 0.000000 2.000000 0.000000
+bind_rotate -0.000000 89.999996 0.000000
+bind_scale 1.000000 1.000000 1.000000
+
+animation animation_MiddleBone
+
+# Node.
+
+node EndBone MiddleBone
+
+translate 0.000000 0.000000 0.000000
+rotate 45.000005 -0.000000 0.000000
+scale 1.000000 1.000000 1.000000
+
+jointIndex 2
+
+bind_translate 0.000000 2.000000 0.000000
+bind_rotate 0.000000 -89.999996 0.000000
+bind_scale 1.000000 1.000000 1.000000
+
+animation animation_EndBone
+
+# Node.
+
+node Cylinder_Skinned Cylinder_Armature
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 1.000000 1.000000 1.000000
+
+mesh Cylinder_Skinned_Mesh
+
+#
+# Object.
+#
+
+name Torus
+
+# Node.
+
+node Torus -
+
+translate 4.000000 1.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 1.000000 1.000000 1.000000
+
+mesh TorusMesh
+
+# Node.
+
+node Cone_Child Torus
+
+translate -1.000000 2.000000 -2.000000
+rotate 0.000000 0.000000 0.000000
+scale 1.000000 1.000000 1.000000
+
+mesh ConeMesh
+
+#
+# Object.
+#
+
+name Cube_Linked
+
+# Node.
+
+node Cube_Linked -
+
+translate 0.000000 0.000000 -4.000000
+rotate 0.000000 45.000005 0.000000
+scale 1.000000 1.000000 1.000000
+
+mesh CubeMesh
+
+#
+# Object.
+#
+
+name AnotherCube
+
+# Node.
+
+node AnotherCube -
+
+translate 1.000000 2.000000 3.000000
+rotate 0.000000 0.000000 0.000000
+scale 1.000000 1.000000 1.000000
+
+mesh AnotherCubeMesh
+
+animation animation_AnotherCube
+
+#
+# Object.
+#
+
+name Plane
+
+# Node.
+
+node Plane -
+
+translate -3.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 1.000000 1.000000 1.000000
+
+mesh PlaneMesh
+
+#
+# Object.
+#
+
+name Cube
+
+# Node.
+
+node Cube -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 1.000000 1.000000 1.000000
+
+mesh CubeMesh
+

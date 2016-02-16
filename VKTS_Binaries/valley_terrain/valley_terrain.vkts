@@ -1,0 +1,776 @@
+#
+# VulKan ToolS scene.
+#
+
+scene_name Scene
+
+object_library valley_terrain_objects.vkts
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_64
+
+name Terrain_Patch_Node_64
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_63
+
+name Terrain_Patch_Node_63
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_56
+
+name Terrain_Patch_Node_56
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_55
+
+name Terrain_Patch_Node_55
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_62
+
+name Terrain_Patch_Node_62
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_61
+
+name Terrain_Patch_Node_61
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_54
+
+name Terrain_Patch_Node_54
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_53
+
+name Terrain_Patch_Node_53
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_60
+
+name Terrain_Patch_Node_60
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_59
+
+name Terrain_Patch_Node_59
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_52
+
+name Terrain_Patch_Node_52
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_51
+
+name Terrain_Patch_Node_51
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_58
+
+name Terrain_Patch_Node_58
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_57
+
+name Terrain_Patch_Node_57
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_50
+
+name Terrain_Patch_Node_50
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_49
+
+name Terrain_Patch_Node_49
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_48
+
+name Terrain_Patch_Node_48
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_47
+
+name Terrain_Patch_Node_47
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_40
+
+name Terrain_Patch_Node_40
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_39
+
+name Terrain_Patch_Node_39
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_46
+
+name Terrain_Patch_Node_46
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_45
+
+name Terrain_Patch_Node_45
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_38
+
+name Terrain_Patch_Node_38
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_37
+
+name Terrain_Patch_Node_37
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_44
+
+name Terrain_Patch_Node_44
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_43
+
+name Terrain_Patch_Node_43
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_36
+
+name Terrain_Patch_Node_36
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_35
+
+name Terrain_Patch_Node_35
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_42
+
+name Terrain_Patch_Node_42
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_41
+
+name Terrain_Patch_Node_41
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_34
+
+name Terrain_Patch_Node_34
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_33
+
+name Terrain_Patch_Node_33
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_32
+
+name Terrain_Patch_Node_32
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_31
+
+name Terrain_Patch_Node_31
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_24
+
+name Terrain_Patch_Node_24
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_23
+
+name Terrain_Patch_Node_23
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_30
+
+name Terrain_Patch_Node_30
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_29
+
+name Terrain_Patch_Node_29
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_22
+
+name Terrain_Patch_Node_22
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_21
+
+name Terrain_Patch_Node_21
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_28
+
+name Terrain_Patch_Node_28
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_27
+
+name Terrain_Patch_Node_27
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_20
+
+name Terrain_Patch_Node_20
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_19
+
+name Terrain_Patch_Node_19
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_26
+
+name Terrain_Patch_Node_26
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_25
+
+name Terrain_Patch_Node_25
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_18
+
+name Terrain_Patch_Node_18
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_17
+
+name Terrain_Patch_Node_17
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_16
+
+name Terrain_Patch_Node_16
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_15
+
+name Terrain_Patch_Node_15
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_08
+
+name Terrain_Patch_Node_08
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_07
+
+name Terrain_Patch_Node_07
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_14
+
+name Terrain_Patch_Node_14
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_13
+
+name Terrain_Patch_Node_13
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_06
+
+name Terrain_Patch_Node_06
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_05
+
+name Terrain_Patch_Node_05
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_12
+
+name Terrain_Patch_Node_12
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_11
+
+name Terrain_Patch_Node_11
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_04
+
+name Terrain_Patch_Node_04
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_03
+
+name Terrain_Patch_Node_03
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_09
+
+name Terrain_Patch_Node_09
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_10
+
+name Terrain_Patch_Node_10
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_02
+
+name Terrain_Patch_Node_02
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+
+#
+# Object instance.
+#
+
+object Terrain_Patch_Node_01
+
+name Terrain_Patch_Node_01
+
+translate 0.0 0.0 0.0
+rotate 0.0 0.0 0.0
+scale 1.0 1.0 1.0
+

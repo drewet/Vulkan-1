@@ -1,0 +1,28 @@
+#
+# VulKan ToolS textures.
+#
+
+#
+# Texture.
+#
+
+name leaf_texture
+
+image_data leaf.tga
+
+#
+# Texture.
+#
+
+name plane_texture
+
+image_data plane.tga
+
+#
+# Texture.
+#
+
+name wood_texture
+
+image_data wood.tga
+

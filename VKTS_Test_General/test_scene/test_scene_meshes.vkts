@@ -1,0 +1,65 @@
+#
+# VulKan ToolS meshes.
+#
+
+submesh_library test_scene_submeshes.vkts
+
+#
+# Mesh.
+#
+
+name Suzanne
+
+submesh Suzanne_0
+
+#
+# Mesh.
+#
+
+name Cylinder_Skinned_Mesh
+
+submesh Cylinder_Skinned_Mesh_0
+
+#
+# Mesh.
+#
+
+name AnotherCubeMesh
+
+submesh AnotherCubeMesh_0
+submesh AnotherCubeMesh_1
+
+#
+# Mesh.
+#
+
+name TorusMesh
+
+submesh TorusMesh_0
+
+#
+# Mesh.
+#
+
+name ConeMesh
+
+submesh ConeMesh_0
+
+#
+# Mesh.
+#
+
+name CubeMesh
+
+submesh CubeMesh_0
+submesh CubeMesh_1
+submesh CubeMesh_2
+
+#
+# Mesh.
+#
+
+name PlaneMesh
+
+submesh PlaneMesh_0
+

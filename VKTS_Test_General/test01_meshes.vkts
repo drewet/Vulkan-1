@@ -1,0 +1,13 @@
+#
+# Test mesh 01
+#
+
+submesh_library test01_submeshes.vkts
+
+name test_mesh_01
+
+submesh test_submesh_01
+
+#
+# Add more meshes here.
+#

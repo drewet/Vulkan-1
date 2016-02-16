@@ -1,0 +1,14 @@
+#
+# VulKan ToolS meshes.
+#
+
+submesh_library basic_skinning_scene_submeshes.vkts
+
+#
+# Mesh.
+#
+
+name T-Bone
+
+submesh T-Bone_0
+

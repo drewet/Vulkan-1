@@ -1,0 +1,12 @@
+#
+# VulKan ToolS textures.
+#
+
+#
+# Texture.
+#
+
+name astro_boy_texture
+
+image_data astro_boy.tga
+

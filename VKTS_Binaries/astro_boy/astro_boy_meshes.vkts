@@ -1,0 +1,17 @@
+#
+# VulKan ToolS meshes.
+#
+
+submesh_library astro_boy_submeshes.vkts
+
+#
+# Mesh.
+#
+
+name Astro_Boy_Mesh
+
+submesh Astro_Boy_Mesh_0
+submesh Astro_Boy_Mesh_1
+submesh Astro_Boy_Mesh_2
+submesh Astro_Boy_Mesh_3
+

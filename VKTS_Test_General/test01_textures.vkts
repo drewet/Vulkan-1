@@ -1,0 +1,11 @@
+#
+# Test texture 01
+#
+
+name test_texture_01
+
+image_data crate_input.tga
+
+#
+# Add more textures here.
+#

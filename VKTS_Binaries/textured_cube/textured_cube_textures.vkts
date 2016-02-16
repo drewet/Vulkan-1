@@ -1,0 +1,12 @@
+#
+# VulKan ToolS textures.
+#
+
+#
+# Texture.
+#
+
+name crate_texture
+
+image_data crate.tga
+

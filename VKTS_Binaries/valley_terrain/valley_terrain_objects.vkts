@@ -1,0 +1,1032 @@
+#
+# VulKan ToolS objects.
+#
+
+mesh_library valley_terrain_meshes.vkts
+
+animation_library valley_terrain_animations.vkts
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_64
+
+# Node.
+
+node Terrain_Patch_Node_64 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_64
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_63
+
+# Node.
+
+node Terrain_Patch_Node_63 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_63
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_56
+
+# Node.
+
+node Terrain_Patch_Node_56 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_56
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_55
+
+# Node.
+
+node Terrain_Patch_Node_55 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_55
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_62
+
+# Node.
+
+node Terrain_Patch_Node_62 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_62
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_61
+
+# Node.
+
+node Terrain_Patch_Node_61 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_61
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_54
+
+# Node.
+
+node Terrain_Patch_Node_54 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_54
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_53
+
+# Node.
+
+node Terrain_Patch_Node_53 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_53
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_60
+
+# Node.
+
+node Terrain_Patch_Node_60 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_60
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_59
+
+# Node.
+
+node Terrain_Patch_Node_59 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_59
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_52
+
+# Node.
+
+node Terrain_Patch_Node_52 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_52
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_51
+
+# Node.
+
+node Terrain_Patch_Node_51 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_51
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_58
+
+# Node.
+
+node Terrain_Patch_Node_58 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_58
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_57
+
+# Node.
+
+node Terrain_Patch_Node_57 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_57
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_50
+
+# Node.
+
+node Terrain_Patch_Node_50 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_50
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_49
+
+# Node.
+
+node Terrain_Patch_Node_49 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_49
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_48
+
+# Node.
+
+node Terrain_Patch_Node_48 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_48
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_47
+
+# Node.
+
+node Terrain_Patch_Node_47 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_47
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_40
+
+# Node.
+
+node Terrain_Patch_Node_40 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_40
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_39
+
+# Node.
+
+node Terrain_Patch_Node_39 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_39
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_46
+
+# Node.
+
+node Terrain_Patch_Node_46 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_46
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_45
+
+# Node.
+
+node Terrain_Patch_Node_45 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_45
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_38
+
+# Node.
+
+node Terrain_Patch_Node_38 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_38
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_37
+
+# Node.
+
+node Terrain_Patch_Node_37 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_37
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_44
+
+# Node.
+
+node Terrain_Patch_Node_44 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_44
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_43
+
+# Node.
+
+node Terrain_Patch_Node_43 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_43
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_36
+
+# Node.
+
+node Terrain_Patch_Node_36 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_36
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_35
+
+# Node.
+
+node Terrain_Patch_Node_35 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_35
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_42
+
+# Node.
+
+node Terrain_Patch_Node_42 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_42
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_41
+
+# Node.
+
+node Terrain_Patch_Node_41 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_41
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_34
+
+# Node.
+
+node Terrain_Patch_Node_34 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_34
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_33
+
+# Node.
+
+node Terrain_Patch_Node_33 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_33
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_32
+
+# Node.
+
+node Terrain_Patch_Node_32 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_32
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_31
+
+# Node.
+
+node Terrain_Patch_Node_31 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_31
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_24
+
+# Node.
+
+node Terrain_Patch_Node_24 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_24
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_23
+
+# Node.
+
+node Terrain_Patch_Node_23 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_23
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_30
+
+# Node.
+
+node Terrain_Patch_Node_30 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_30
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_29
+
+# Node.
+
+node Terrain_Patch_Node_29 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_29
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_22
+
+# Node.
+
+node Terrain_Patch_Node_22 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_22
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_21
+
+# Node.
+
+node Terrain_Patch_Node_21 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_21
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_28
+
+# Node.
+
+node Terrain_Patch_Node_28 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_28
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_27
+
+# Node.
+
+node Terrain_Patch_Node_27 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_27
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_20
+
+# Node.
+
+node Terrain_Patch_Node_20 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_20
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_19
+
+# Node.
+
+node Terrain_Patch_Node_19 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_19
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_26
+
+# Node.
+
+node Terrain_Patch_Node_26 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_26
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_25
+
+# Node.
+
+node Terrain_Patch_Node_25 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_25
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_18
+
+# Node.
+
+node Terrain_Patch_Node_18 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_18
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_17
+
+# Node.
+
+node Terrain_Patch_Node_17 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_17
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_16
+
+# Node.
+
+node Terrain_Patch_Node_16 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_16
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_15
+
+# Node.
+
+node Terrain_Patch_Node_15 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_15
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_08
+
+# Node.
+
+node Terrain_Patch_Node_08 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_08
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_07
+
+# Node.
+
+node Terrain_Patch_Node_07 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_07
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_14
+
+# Node.
+
+node Terrain_Patch_Node_14 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_14
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_13
+
+# Node.
+
+node Terrain_Patch_Node_13 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_13
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_06
+
+# Node.
+
+node Terrain_Patch_Node_06 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_06
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_05
+
+# Node.
+
+node Terrain_Patch_Node_05 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_05
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_12
+
+# Node.
+
+node Terrain_Patch_Node_12 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_12
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_11
+
+# Node.
+
+node Terrain_Patch_Node_11 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_11
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_04
+
+# Node.
+
+node Terrain_Patch_Node_04 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_04
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_03
+
+# Node.
+
+node Terrain_Patch_Node_03 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_03
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_09
+
+# Node.
+
+node Terrain_Patch_Node_09 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_09
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_10
+
+# Node.
+
+node Terrain_Patch_Node_10 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_10
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_02
+
+# Node.
+
+node Terrain_Patch_Node_02 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_02
+
+#
+# Object.
+#
+
+name Terrain_Patch_Node_01
+
+# Node.
+
+node Terrain_Patch_Node_01 -
+
+translate 0.000000 0.000000 -0.000000
+rotate 0.000000 0.000000 0.000000
+scale 8.000000 8.000000 8.000000
+
+mesh Terrain_Patch_Mesh_01
+

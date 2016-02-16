@@ -1,0 +1,14 @@
+#
+# VulKan ToolS meshes.
+#
+
+submesh_library skinned_cylinder_submeshes.vkts
+
+#
+# Mesh.
+#
+
+name Cylinder
+
+submesh Cylinder_0
+
