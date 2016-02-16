@@ -3,7 +3,7 @@ Vulkan examples using VulKan ToolS (VKTS):
 ------------------------------------------
 
 Features of VKTS:  
-[VulKan ToolS (VKTS)](VKTS/README.md)
+[VulKan ToolS (VKTS)](../VKTS/README.md)
 
 Building on Android, Linux and Windows:  
 [How to build the VKTS examples](BUILD.md)
@@ -12,13 +12,13 @@ Gamepad, keyboard and mouse input:
 [How to use the input devices](INPUT.md)
 
 Executables, assets and shaders:  
-[VKTS Binaries](VKTS_Binaries/README.md)
+[VKTS Binaries](../VKTS_Binaries/README.md)
 
 Exporter for the scene file format:  
-[VKTS Exporter](VKTS_Exporter/README.md)
+[VKTS Exporter](../VKTS_Exporter/README.md)
 
 Used headers and pre-build libraries:  
-[VKTS External libraries](VKTS_External/README.md)
+[VKTS External libraries](../VKTS_External/README.md)
 
 
 Vulkan examples based on VKTS:
