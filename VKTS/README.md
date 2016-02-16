@@ -7,7 +7,7 @@ Authors:
 
 VKTS version: **0.9.0**
 
-Depending Vulkan API header version: **1.0.3.1**
+Depending Vulkan API header version: **1.0.3**
 
 Depending Vulkan extensions, when using a window system:
 
