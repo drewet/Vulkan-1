@@ -2,7 +2,7 @@
 # VKTS Example CMake file.
 #
 
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.2)
 
 set (VKTS_Example "VKTS_Example06")
 

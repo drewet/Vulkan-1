@@ -26,7 +26,7 @@ Following requirements do depend on the platform:
 - Building: Eclipse IDE for C/C++ Developers (recommended)
     - [Eclipse IDE for C/C++ Developers](https://www.eclipse.org/downloads/) project files included. 
 - Building: make  
-    - Minimum [CMake](https://cmake.org/) version has to be 3.1.0.
+    - Minimum [CMake](https://cmake.org/) version has to be 3.2.0.
 
 
 ![Windows](images/windows_logo.png) Windows:
@@ -34,12 +34,12 @@ Following requirements do depend on the platform:
 
 - Only 64bit Intel systems are supported. Anyway, 32bit should be buildable.  
 - Building: Visual C++ (recommended)
-    - Minimum [CMake](https://cmake.org/) version has to be 3.1.0.
+    - Minimum [CMake](https://cmake.org/) version has to be 3.2.0.
     - [Visual Studio 2015](https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx) or later is required.
 - Building: Eclipse IDE for C/C++ Developers
     - [Eclipse IDE for C/C++ Developers](https://www.eclipse.org/downloads/) project files included. 
 - Building: make  
-    - Minimum CMake version has to be 3.1.0.
+    - Minimum CMake version has to be 3.2.0.
     - [Msys2 with mingw-w64](http://msys2.github.io/) required.
 
 
