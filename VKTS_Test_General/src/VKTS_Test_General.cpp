@@ -30,88 +30,63 @@ public:
 
 		//
 
-		vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Initialize done.",
-				name.c_str());
-		vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Thread %d from %d.",
-				name.c_str(), updateContext.getThreadIndex(),
-				updateContext.getThreadCount());
+		vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Initialize done.", name.c_str());
 
-		const auto displayIndexWalker =
-				updateContext.getAttachedDisplayIndices().begin();
-		const auto windowIndexWalker =
-				updateContext.getAttachedWindowIndices().begin();
+		vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Thread %d from %d.", name.c_str(), updateContext.getThreadIndex(), updateContext.getThreadCount());
 
-		if (displayIndexWalker
-				!= updateContext.getAttachedDisplayIndices().end()
-				&& windowIndexWalker
-						!= updateContext.getAttachedWindowIndices().end())
+		const auto displayIndexWalker = updateContext.getAttachedDisplayIndices().begin();
+
+		const auto windowIndexWalker = updateContext.getAttachedWindowIndices().begin();
+
+		if (displayIndexWalker != updateContext.getAttachedDisplayIndices().end() && windowIndexWalker != updateContext.getAttachedWindowIndices().end())
 		{
 			displayIndex = *displayIndexWalker;
 			windowIndex = *windowIndexWalker;
 
-			vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Found display index = %d",
-					name.c_str(), displayIndex);
-			vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Width x Height = %d x %d",
-					name.c_str(),
-					updateContext.getDisplayDimension(displayIndex).x,
-					updateContext.getDisplayDimension(displayIndex).y);
-			vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Found window index = %d",
-					name.c_str(), windowIndex);
-			vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Width x Height = %d x %d",
-					name.c_str(),
-					updateContext.getWindowDimension(windowIndex).x,
-					updateContext.getWindowDimension(windowIndex).y);
+			vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Found display index = %d", name.c_str(), displayIndex);
+			vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Width x Height = %d x %d", name.c_str(), updateContext.getDisplayDimension(displayIndex).x, updateContext.getDisplayDimension(displayIndex).y);
+			vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Found window index = %d", name.c_str(), windowIndex);
+			vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Width x Height = %d x %d", name.c_str(), updateContext.getWindowDimension(windowIndex).x, updateContext.getWindowDimension(windowIndex).y);
 
 			//
 
 			if (!vkts::wsiGatherNeededInstanceExtensions())
 			{
-				vkts::logPrint(
-				VKTS_LOG_WARNING,
-						"Test: Could not gather instance extensions. Skipping scene loading.");
+				vkts::logPrint(VKTS_LOG_WARNING, "Test: Could not gather instance extensions. Skipping scene loading.");
 
 				return VK_TRUE;
 			}
 
-			auto instance = vkts::instanceCreate(VKTS_TEST_NAME,
-					VK_MAKE_VERSION(1, 0, 0), VK_API_VERSION, 0, 0, nullptr,
-					vkts::wsiGetNeededInstanceExtensionCount(),
-					vkts::wsiGetNeededInstanceExtensionNames());
+			auto instance = vkts::instanceCreate(VKTS_TEST_NAME, VK_MAKE_VERSION(1, 0, 0), VK_API_VERSION, 0, 0, nullptr, vkts::wsiGetNeededInstanceExtensionCount(), vkts::wsiGetNeededInstanceExtensionNames());
 
 			if (!instance.get())
 			{
-				vkts::logPrint(
-				VKTS_LOG_WARNING,
-						"Test: Could not create instance. Skipping scene loading.");
+				vkts::logPrint(VKTS_LOG_WARNING, "Test: Could not create instance. Skipping scene loading.");
 
 				return VK_TRUE;
 			}
 
 			if (!vkts::wsiInitInstanceExtensions(instance->getInstance()))
 			{
-				vkts::logPrint(
-				VKTS_LOG_ERROR,
-						"Test: Could not initialize instance extension.");
+				vkts::logPrint(VKTS_LOG_ERROR, "Test: Could not initialize instance extension.");
 
 				return VK_FALSE;
 			}
 
 			//
 
-			auto physicalDevice = vkts::physicalDeviceCreate(
-					instance->getInstance(), 0);
+			auto physicalDevice = vkts::physicalDeviceCreate(instance->getInstance(), 0);
+
 			if (!physicalDevice.get())
 			{
-				vkts::logPrint(VKTS_LOG_ERROR,
-						"Test: Could not get physical device.");
+				vkts::logPrint(VKTS_LOG_ERROR, "Test: Could not get physical device.");
 
 				return VK_FALSE;
 			}
 
 			if (!vkts::wsiGatherNeededDeviceExtensions(physicalDevice->getPhysicalDevice()))
 			{
-				vkts::logPrint(VKTS_LOG_ERROR,
-						"Test: Could not gather device extension.");
+				vkts::logPrint(VKTS_LOG_ERROR, "Test: Could not gather device extension.");
 
 				return VK_FALSE;
 			}
@@ -182,8 +157,7 @@ public:
 				return VK_FALSE;
 			}
 
-			auto queue = vkts::queueGet(device->getDevice(), queueFamilyIndex,
-					0);
+			auto queue = vkts::queueGet(device->getDevice(), queueFamilyIndex, 0);
 
 			if (!queue.get())
 			{
@@ -194,8 +168,7 @@ public:
 
 			//
 
-			auto initialResources = vkts::initialResourcesCreate(instance,
-					physicalDevice, device, queue);
+			auto initialResources = vkts::initialResourcesCreate(instance, physicalDevice, device, queue);
 
 			if (!initialResources.get())
 			{
@@ -302,27 +275,20 @@ public:
 			// Command buffer to allow resource update.
 			//
 
-			auto cmdBuffer = vkts::commandBuffersCreate(device->getDevice(),
-					commandPool->getCmdPool(), VK_COMMAND_BUFFER_LEVEL_PRIMARY,
-					1);
+			auto cmdBuffer = vkts::commandBuffersCreate(device->getDevice(), commandPool->getCmdPool(), VK_COMMAND_BUFFER_LEVEL_PRIMARY, 1);
 
 			if (!cmdBuffer.get())
 			{
-				vkts::logPrint(VKTS_LOG_ERROR,
-						"Test: Could not create command buffer.");
+				vkts::logPrint(VKTS_LOG_ERROR, "Test: Could not create command buffer.");
 
 				return VK_FALSE;
 			}
 
-			result = cmdBuffer->beginCommandBuffer(0,
-			VK_NULL_HANDLE, 0,
-			VK_NULL_HANDLE,
-			VK_FALSE, 0, 0);
+			result = cmdBuffer->beginCommandBuffer(0, VK_NULL_HANDLE, 0, VK_NULL_HANDLE, VK_FALSE, 0, 0);
 
 			if (result != VK_SUCCESS)
 			{
-				vkts::logPrint(VKTS_LOG_ERROR,
-						"Test: Could not begin command buffer.");
+				vkts::logPrint(VKTS_LOG_ERROR, "Test: Could not begin command buffer.");
 
 				return VK_FALSE;
 			}
@@ -331,14 +297,11 @@ public:
 			// First test scene.
 			//
 
-			auto context = vkts::scenegraphCreateContext(VK_FALSE,
-					initialResources, cmdBuffer, samplerCreateInfo,
-					imageViewCreateInfo, descriptorSetLayout);
+			auto context = vkts::scenegraphCreateContext(VK_FALSE, initialResources, cmdBuffer, samplerCreateInfo, imageViewCreateInfo, descriptorSetLayout);
 
 			if (!context.get())
 			{
-				vkts::logPrint(VKTS_LOG_ERROR,
-						"Test '%s': Could not create context", name.c_str());
+				vkts::logPrint(VKTS_LOG_ERROR, "Test '%s': Could not create context", name.c_str());
 
 				return VK_FALSE;
 			}
@@ -347,8 +310,7 @@ public:
 
 			if (!scene.get())
 			{
-				vkts::logPrint(VKTS_LOG_ERROR,
-						"Test '%s': Could not load scene", name.c_str());
+				vkts::logPrint(VKTS_LOG_ERROR, "Test '%s': Could not load scene", name.c_str());
 
 				return VK_FALSE;
 			}
@@ -361,8 +323,7 @@ public:
 
 			if (result != VK_SUCCESS)
 			{
-				vkts::logPrint(VKTS_LOG_ERROR,
-						"Test: Could not end command buffer.");
+				vkts::logPrint(VKTS_LOG_ERROR, "Test: Could not end command buffer.");
 
 				return VK_FALSE;
 			}
@@ -393,8 +354,7 @@ public:
 
 			if (result != VK_SUCCESS)
 			{
-				vkts::logPrint(VKTS_LOG_ERROR,
-						"Test: Could not wait for idle queue.");
+				vkts::logPrint(VKTS_LOG_ERROR, "Test: Could not wait for idle queue.");
 
 				return VK_FALSE;
 			}
@@ -409,15 +369,11 @@ public:
 			// Reuse command buffer again.
 			//
 
-			result = cmdBuffer->beginCommandBuffer(0,
-			VK_NULL_HANDLE, 0,
-			VK_NULL_HANDLE,
-			VK_FALSE, 0, 0);
+			result = cmdBuffer->beginCommandBuffer(0, VK_NULL_HANDLE, 0, VK_NULL_HANDLE, VK_FALSE, 0, 0);
 
 			if (result != VK_SUCCESS)
 			{
-				vkts::logPrint(VKTS_LOG_ERROR,
-						"Test: Could not begin command buffer.");
+				vkts::logPrint(VKTS_LOG_ERROR, "Test: Could not begin command buffer.");
 
 				return VK_FALSE;
 			}
@@ -426,27 +382,20 @@ public:
 			// Second test scene.
 			//
 
-			auto anotherContext = vkts::scenegraphCreateContext(
-			VK_FALSE, initialResources, cmdBuffer, samplerCreateInfo,
-					imageViewCreateInfo, descriptorSetLayout);
+			auto anotherContext = vkts::scenegraphCreateContext(VK_FALSE, initialResources, cmdBuffer, samplerCreateInfo, imageViewCreateInfo, descriptorSetLayout);
 
 			if (!anotherContext.get())
 			{
-				vkts::logPrint(VKTS_LOG_ERROR,
-						"Test '%s': Could not create another context",
-						name.c_str());
+				vkts::logPrint(VKTS_LOG_ERROR, "Test '%s': Could not create another context", name.c_str());
 
 				return VK_FALSE;
 			}
 
-			auto anotherScene = vkts::scenegraphLoadScene(
-					"test_scene/test_scene.vkts", anotherContext);
+			auto anotherScene = vkts::scenegraphLoadScene("test_scene/test_scene.vkts", anotherContext);
 
 			if (!anotherScene.get())
 			{
-				vkts::logPrint(VKTS_LOG_ERROR,
-						"Test '%s': Could not load another scene",
-						name.c_str());
+				vkts::logPrint(VKTS_LOG_ERROR, "Test '%s': Could not load another scene", name.c_str());
 
 				return VK_FALSE;
 			}
@@ -459,8 +408,7 @@ public:
 
 			if (result != VK_SUCCESS)
 			{
-				vkts::logPrint(VKTS_LOG_ERROR,
-						"Test: Could not end command buffer.");
+				vkts::logPrint(VKTS_LOG_ERROR, "Test: Could not end command buffer.");
 
 				return VK_FALSE;
 			}
@@ -489,8 +437,7 @@ public:
 
 			if (result != VK_SUCCESS)
 			{
-				vkts::logPrint(VKTS_LOG_ERROR,
-						"Test: Could not wait for idle queue.");
+				vkts::logPrint(VKTS_LOG_ERROR, "Test: Could not wait for idle queue.");
 
 				return VK_FALSE;
 			}
@@ -523,60 +470,43 @@ public:
 	{
 		if (windowIndex >= 0)
 		{
-			vkts::logPrint(VKTS_LOG_DEBUG,
-					"Test '%s': Width x Height = %d x %d", name.c_str(),
-					updateContext.getWindowDimension(windowIndex).x,
-					updateContext.getWindowDimension(windowIndex).y);
+			vkts::logPrint(VKTS_LOG_DEBUG, "Test '%s': Width x Height = %d x %d", name.c_str(), updateContext.getWindowDimension(windowIndex).x, updateContext.getWindowDimension(windowIndex).y);
 
-			for (int32_t currentGamepad = 0; currentGamepad < VKTS_MAX_GAMEPADS;
-					currentGamepad++)
+			for (int32_t currentGamepad = 0; currentGamepad < VKTS_MAX_GAMEPADS; currentGamepad++)
 			{
-				for (int32_t currentButtonIndex = 0;
-						currentButtonIndex < VKTS_MAX_GAMEPAD_BUTTONS;
-						currentButtonIndex++)
+				for (int32_t currentButtonIndex = 0; currentButtonIndex < VKTS_MAX_GAMEPAD_BUTTONS; currentButtonIndex++)
 				{
-					if (updateContext.getGamepadButton(windowIndex,
-							currentGamepad, currentButtonIndex))
+					if (updateContext.getGamepadButton(windowIndex, currentGamepad, currentButtonIndex))
 					{
-						vkts::logPrint(
-						VKTS_LOG_INFO,
-								"Test '%s': Gamepad '%d' button '%d' pressed!",
-								name.c_str(), currentGamepad,
-								currentButtonIndex);
+						vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Gamepad '%d' button '%d' pressed!", name.c_str(), currentGamepad, currentButtonIndex);
 					}
 				}
 			}
 
 			if (updateContext.getKey(windowIndex, VKTS_KEY_Q))
 			{
-				vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Quit pressed!",
-						name.c_str());
+				vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Quit pressed!", name.c_str());
 
 				return VK_FALSE;
 			}
 		}
 
-		vkts::logPrint(VKTS_LOG_DEBUG, "Test '%s': Updating %f", name.c_str(),
-				updateContext.getTotalTime());
+		vkts::logPrint(VKTS_LOG_DEBUG, "Test '%s': Updating %f", name.c_str(), updateContext.getTotalTime());
 
-		vkts::logPrint(VKTS_LOG_DEBUG, "Test '%s': Before barrier.",
-				name.c_str());
+		vkts::logPrint(VKTS_LOG_DEBUG, "Test '%s': Before barrier.", name.c_str());
 
 		if (!vkts::barrierSync())
 		{
-			vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Barrier killed.",
-					name.c_str());
+			vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Barrier killed.", name.c_str());
 
 			return VK_FALSE;
 		}
 
-		vkts::logPrint(VKTS_LOG_DEBUG, "Test '%s': After barrier.",
-				name.c_str());
+		vkts::logPrint(VKTS_LOG_DEBUG, "Test '%s': After barrier.", name.c_str());
 
 		if (name == "a" && updateContext.getTotalTime() > 10.0)
 		{
-			vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Time reached!",
-					name.c_str());
+			vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Time reached!", name.c_str());
 
 			return VK_FALSE;
 		}
@@ -586,8 +516,7 @@ public:
 
 	virtual void terminate(const vkts::IUpdateThreadContext& updateContext)
 	{
-		vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Terminate done.",
-				name.c_str());
+		vkts::logPrint(VKTS_LOG_INFO, "Test '%s': Terminate done.", name.c_str());
 	}
 
 };
@@ -611,8 +540,7 @@ int main()
 	//vkts::logSetLevel(VKTS_LOG_DEBUG);
 	//vkts::logSetLevel(VKTS_LOG_SEVERE);
 
-	vkts::logPrint(VKTS_LOG_INFO, "Test: Number of processors = %u.",
-			vkts::processorGetNumber());
+	vkts::logPrint(VKTS_LOG_INFO, "Test: Number of processors = %u.", vkts::processorGetNumber());
 
 	//
 	// Visual setup.
@@ -627,8 +555,7 @@ int main()
 		return -1;
 	}
 
-	vkts::logPrint(VKTS_LOG_INFO, "Test: Number of displays = %d",
-			vkts::visualGetNumberDisplays());
+	vkts::logPrint(VKTS_LOG_INFO, "Test: Number of displays = %d", vkts::visualGetNumberDisplays());
 
 	auto display = vkts::visualCreateDefaultDisplay().lock();
 
@@ -643,13 +570,9 @@ int main()
 		return -1;
 	}
 
-	vkts::logPrint(VKTS_LOG_INFO, "Test: Display = %d Width x Height = %d x %d",
-			display->getIndex(), display->getWidth(), display->getHeight());
+	vkts::logPrint(VKTS_LOG_INFO, "Test: Display = %d Width x Height = %d x %d", display->getIndex(), display->getWidth(), display->getHeight());
 
-	auto window = vkts::visualCreateWindow(display, "Test", 1024, 768,
-	VK_FALSE,
-	VK_TRUE,
-	VK_FALSE).lock();
+	auto window = vkts::visualCreateWindow(display, "Test", 1024, 768, VK_FALSE, VK_TRUE, VK_FALSE).lock();
 
 	if (!window.get())
 	{
@@ -704,8 +627,7 @@ int main()
 
 		if (!vkts::fileSaveText("created.txt", createdTextBuffer))
 		{
-			vkts::logPrint(VKTS_LOG_WARNING,
-					"Test: Could not save created text file.");
+			vkts::logPrint(VKTS_LOG_WARNING, "Test: Could not save created text file.");
 		}
 
 		createdTextBuffer->seek(0, VKTS_SEARCH_ABSOLUTE);
@@ -714,8 +636,7 @@ int main()
 
 		while (createdTextBuffer->gets(buffer, 256))
 		{
-			vkts::logPrint(VKTS_LOG_INFO, "Test: Created text line: '%s'",
-					buffer);
+			vkts::logPrint(VKTS_LOG_INFO, "Test: Created text line: '%s'", buffer);
 		}
 	}
 	else
@@ -736,15 +657,13 @@ int main()
 			vkts::logPrint(VKTS_LOG_WARNING, "Test: Could not save TGA image.");
 		}
 
-		auto mipMaps = vkts::imageDataMipmap(imageTga,
-		VK_TRUE, "crate_output.tga");
+		auto mipMaps = vkts::imageDataMipmap(imageTga, VK_TRUE, "crate_output.tga");
 
 		for (size_t i = 0; i < mipMaps.size(); i++)
 		{
 			if (!vkts::imageDataSave(mipMaps[i]->getName().c_str(), mipMaps[i]))
 			{
-				vkts::logPrint(VKTS_LOG_WARNING,
-						"Test: Could not save mip map TGA image.");
+				vkts::logPrint(VKTS_LOG_WARNING, "Test: Could not save mip map TGA image.");
 			}
 		}
 	}
@@ -771,15 +690,13 @@ int main()
 
 	//
 
-	auto createdTga = vkts::imageDataCreate("created.tga", 16, 16, 1, 1.0f,
-			0.0f, 0.0f, 0.0f, VK_IMAGE_TYPE_2D, VK_FORMAT_R8G8B8_UNORM);
+	auto createdTga = vkts::imageDataCreate("created.tga", 16, 16, 1, 1.0f, 0.0f, 0.0f, 0.0f, VK_IMAGE_TYPE_2D, VK_FORMAT_R8G8B8_UNORM);
 
 	if (createdTga.get())
 	{
 		if (!vkts::imageDataSave(createdTga->getName().c_str(), createdTga))
 		{
-			vkts::logPrint(VKTS_LOG_WARNING,
-					"Test: Could not save created TGA image.");
+			vkts::logPrint(VKTS_LOG_WARNING, "Test: Could not save created TGA image.");
 		}
 	}
 	else
@@ -789,15 +706,13 @@ int main()
 
 	//
 
-	auto createdHdr = vkts::imageDataCreate("created.hdr", 16, 16, 1, 1.0f,
-			0.0f, 0.0f, 0.0f, VK_IMAGE_TYPE_2D, VK_FORMAT_R32G32B32_SFLOAT);
+	auto createdHdr = vkts::imageDataCreate("created.hdr", 16, 16, 1, 1.0f, 0.0f, 0.0f, 0.0f, VK_IMAGE_TYPE_2D, VK_FORMAT_R32G32B32_SFLOAT);
 
 	if (createdHdr.get())
 	{
 		if (!vkts::imageDataSave(createdHdr->getName().c_str(), createdHdr))
 		{
-			vkts::logPrint(VKTS_LOG_WARNING,
-					"Test: Could not save created HDR image.");
+			vkts::logPrint(VKTS_LOG_WARNING, "Test: Could not save created HDR image.");
 		}
 	}
 	else
@@ -811,21 +726,18 @@ int main()
 
 	if (imageRGB.get())
 	{
-		auto imageRGBA = vkts::imageDataConvert(imageRGB,
-				VK_FORMAT_R8G8B8A8_UNORM, "parque_rgba.tga");
+		auto imageRGBA = vkts::imageDataConvert(imageRGB, VK_FORMAT_R8G8B8A8_UNORM, "parque_rgba.tga");
 
 		if (imageRGBA.get())
 		{
 			if (!vkts::imageDataSave("parque_rgba.tga", imageRGBA))
 			{
-				vkts::logPrint(VKTS_LOG_WARNING,
-						"Test: Could not save converted RGBA image.");
+				vkts::logPrint(VKTS_LOG_WARNING, "Test: Could not save converted RGBA image.");
 			}
 		}
 		else
 		{
-			vkts::logPrint(VKTS_LOG_WARNING,
-					"Test: Could not convert RGB image.");
+			vkts::logPrint(VKTS_LOG_WARNING, "Test: Could not convert RGB image.");
 		}
 	}
 	else

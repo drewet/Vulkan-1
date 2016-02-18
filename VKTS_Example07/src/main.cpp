@@ -92,8 +92,7 @@ int main()
 	//
 
 	// Single threaded application, so it is safe to pass display and window.
-	vkts::IUpdateThreadSP example = vkts::IUpdateThreadSP(
-			new Example(display->getIndex(), window->getIndex()));
+	vkts::IUpdateThreadSP example = vkts::IUpdateThreadSP(new Example(display->getIndex(), window->getIndex()));
 
 	if (!example.get())
 	{

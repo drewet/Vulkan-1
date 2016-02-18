@@ -73,54 +73,42 @@ private:
 
 	VkCommandBuffer cmdBuffer[VKTS_NUMBER_BUFFERS];
 
-	VkBool32
-	buildCmdBuffer(const int32_t usedBuffer);
+	VkBool32 buildCmdBuffer(const int32_t usedBuffer);
 
-	VkBool32
-	buildFramebuffer(const int32_t usedBuffer);
+	VkBool32 buildFramebuffer(const int32_t usedBuffer);
 
-	VkBool32
-	buildSwapchainImageView(const int32_t usedBuffer);
+	VkBool32 buildSwapchainImageView(const int32_t usedBuffer);
 
-	VkBool32
-	buildSwapchainImageLayout(const int32_t usedBuffer, const VkCommandBuffer cmdBuffer);
+	VkBool32 buildSwapchainImageLayout(const int32_t usedBuffer, const VkCommandBuffer cmdBuffer);
 
-	VkBool32
-	buildRenderPass();
+	VkBool32 buildRenderPass();
 
-	VkBool32
-	buildSwapchain();
+	VkBool32 buildSwapchain();
 
-	VkBool32
-	buildResources(const vkts::IUpdateThreadContext& updateContext);
+	VkBool32 buildResources(const vkts::IUpdateThreadContext& updateContext);
 
-	void
-	terminateResources(const vkts::IUpdateThreadContext& updateContext);
+	void terminateResources(const vkts::IUpdateThreadContext& updateContext);
 
 public:
 
 	Example(const int32_t displayIndex, const int32_t windowIndex);
 
-	virtual
-	~Example();
+	virtual ~Example();
 
 	//
 	// Vulkan initialization.
 	//
-	virtual VkBool32
-	init(const vkts::IUpdateThreadContext& updateContext);
+	virtual VkBool32 init(const vkts::IUpdateThreadContext& updateContext);
 
 	//
 	// Vulkan update.
 	//
-	virtual VkBool32
-	update(const vkts::IUpdateThreadContext& updateContext);
+	virtual VkBool32 update(const vkts::IUpdateThreadContext& updateContext);
 
 	//
 	// Vulkan termination.
 	//
-	virtual void
-	terminate(const vkts::IUpdateThreadContext& updateContext);
+	virtual void terminate(const vkts::IUpdateThreadContext& updateContext);
 
 };
 

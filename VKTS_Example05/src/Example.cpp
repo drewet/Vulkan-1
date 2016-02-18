@@ -27,28 +27,7 @@
 #include "Example.hpp"
 
 Example::Example(const int32_t displayIndex, const int32_t windowIndex) :
-		IUpdateThread(),
-		displayIndex(displayIndex),
-		windowIndex(windowIndex),
-		initialResources(nullptr),
-		surface(nullptr),
-		commandPool(nullptr),
-        imageAcquiredSemaphore(nullptr),
-        renderingCompleteSemaphore(nullptr),
-		descriptorSetLayout(nullptr),
-		vertexViewProjectionUniformBuffer(nullptr),
-		fragmentUniformBuffer(nullptr),
-		vertexShaderModule(nullptr),
-		fragmentShaderModule(nullptr),
-		pipelineCache(nullptr),
-		pipelineLayout(nullptr),
-		sceneContext(nullptr),
-		scene(nullptr),
-		swapchain(nullptr),
-		renderPass(nullptr),
-		pipeline(nullptr),
-		depthTexture(nullptr),
-		depthStencilImageView(nullptr)
+		IUpdateThread(), displayIndex(displayIndex), windowIndex(windowIndex), initialResources(nullptr), surface(nullptr), commandPool(nullptr), imageAcquiredSemaphore(nullptr), renderingCompleteSemaphore(nullptr), descriptorSetLayout(nullptr), vertexViewProjectionUniformBuffer(nullptr), fragmentUniformBuffer(nullptr), vertexShaderModule(nullptr), fragmentShaderModule(nullptr), pipelineCache(nullptr), pipelineLayout(nullptr), sceneContext(nullptr), scene(nullptr), swapchain(nullptr), renderPass(nullptr), pipeline(nullptr), depthTexture(nullptr), depthStencilImageView(nullptr)
 {
 	for (int32_t i = 0; i < VKTS_NUMBER_BUFFERS; i++)
 	{
@@ -186,11 +165,7 @@ VkBool32 Example::buildFramebuffer(const int32_t usedBuffer)
 	imageViews[0] = swapchainImageView[usedBuffer]->getImageView();
 	imageViews[1] = depthStencilImageView->getImageView();
 
-	framebuffer[usedBuffer] = vkts::framebufferCreate(
-			initialResources->getDevice()->getDevice(), 0,
-			renderPass->getRenderPass(), 2, imageViews,
-			swapchain->getImageExtent().width,
-			swapchain->getImageExtent().height, 1);
+	framebuffer[usedBuffer] = vkts::framebufferCreate(initialResources->getDevice()->getDevice(), 0, renderPass->getRenderPass(), 2, imageViews, swapchain->getImageExtent().width, swapchain->getImageExtent().height, 1);
 
 	if (!framebuffer[usedBuffer].get())
 	{
@@ -207,11 +182,7 @@ VkBool32 Example::buildSwapchainImageView(const int32_t usedBuffer)
 	VkComponentMapping componentMapping = { VK_COMPONENT_SWIZZLE_R, VK_COMPONENT_SWIZZLE_G, VK_COMPONENT_SWIZZLE_B, VK_COMPONENT_SWIZZLE_A };
 	VkImageSubresourceRange imageSubresourceRange = { VK_IMAGE_ASPECT_COLOR_BIT, 0, 1, 0, 1 };
 
-	swapchainImageView[usedBuffer] = vkts::imageViewCreate(
-			initialResources->getDevice()->getDevice(), 0,
-			swapchain->getAllSwapchainImages()[usedBuffer],
-			VK_IMAGE_VIEW_TYPE_2D, swapchain->getImageFormat(), componentMapping,
-			imageSubresourceRange);
+	swapchainImageView[usedBuffer] = vkts::imageViewCreate(initialResources->getDevice()->getDevice(), 0, swapchain->getAllSwapchainImages()[usedBuffer], VK_IMAGE_VIEW_TYPE_2D, swapchain->getImageFormat(), componentMapping, imageSubresourceRange);
 
 	if (!swapchainImageView[usedBuffer].get())
 	{
@@ -329,12 +300,7 @@ VkBool32 Example::buildDepthStencilImageView()
 	VkComponentMapping componentMapping = { VK_COMPONENT_SWIZZLE_IDENTITY, VK_COMPONENT_SWIZZLE_IDENTITY, VK_COMPONENT_SWIZZLE_IDENTITY, VK_COMPONENT_SWIZZLE_IDENTITY };
 	VkImageSubresourceRange imageSubresourceRange = { VK_IMAGE_ASPECT_DEPTH_BIT, 0, 1, 0, 1 };
 
-	depthStencilImageView = vkts::imageViewCreate(
-			initialResources->getDevice()->getDevice(), 0,
-			depthTexture->getImage()->getImage(),
-			VK_IMAGE_VIEW_TYPE_2D,
-			depthTexture->getImage()->getFormat(), componentMapping,
-			imageSubresourceRange);
+	depthStencilImageView = vkts::imageViewCreate(initialResources->getDevice()->getDevice(), 0, depthTexture->getImage()->getImage(), VK_IMAGE_VIEW_TYPE_2D, depthTexture->getImage()->getFormat(), componentMapping, imageSubresourceRange);
 
 	if (!depthStencilImageView.get())
 	{
@@ -869,8 +835,7 @@ VkBool32 Example::buildUniformBuffers()
 	return VK_TRUE;
 }
 
-VkBool32 Example::buildResources(
-		const vkts::IUpdateThreadContext& updateContext)
+VkBool32 Example::buildResources(const vkts::IUpdateThreadContext& updateContext)
 {
 	VkResult result;
 
@@ -885,12 +850,7 @@ VkBool32 Example::buildResources(
 
 	VkSwapchainKHR oldSwapchain = lastSwapchain.get() ? lastSwapchain->getSwapchain() : VK_NULL_HANDLE;
 
-	swapchain = vkts::wsiSwapchainCreate(initialResources->getPhysicalDevice()->getPhysicalDevice(), initialResources->getDevice()->getDevice(),
-			0, surface->getSurface(),
-			VKTS_NUMBER_BUFFERS, extent2D, 1, VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT,
-			VK_SHARING_MODE_EXCLUSIVE, 0, nullptr, VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR,
-			VK_TRUE,
-			oldSwapchain);
+	swapchain = vkts::wsiSwapchainCreate(initialResources->getPhysicalDevice()->getPhysicalDevice(), initialResources->getDevice()->getDevice(), 0, surface->getSurface(), VKTS_NUMBER_BUFFERS, extent2D, 1, VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT, VK_SHARING_MODE_EXCLUSIVE, 0, nullptr, VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR, VK_TRUE, oldSwapchain);
 
 	if (!swapchain.get())
 	{
@@ -1049,8 +1009,7 @@ VkBool32 Example::buildResources(
 	return VK_TRUE;
 }
 
-void Example::terminateResources(
-		const vkts::IUpdateThreadContext& updateContext)
+void Example::terminateResources(const vkts::IUpdateThreadContext& updateContext)
 {
 	if (initialResources.get())
 	{

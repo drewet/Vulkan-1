@@ -44,26 +44,22 @@ public:
 
 	Example(const int32_t displayIndex, const int32_t windowIndex);
 
-	virtual
-	~Example();
+	virtual ~Example();
 
 	//
 	// Vulkan initialization.
 	//
-	virtual VkBool32
-	init(const vkts::IUpdateThreadContext& updateContext);
+	virtual VkBool32 init(const vkts::IUpdateThreadContext& updateContext);
 
 	//
 	// Vulkan update.
 	//
-	virtual VkBool32
-	update(const vkts::IUpdateThreadContext& updateContext);
+	virtual VkBool32 update(const vkts::IUpdateThreadContext& updateContext);
 
 	//
 	// Vulkan termination.
 	//
-	virtual void
-	terminate(const vkts::IUpdateThreadContext& updateContext);
+	virtual void terminate(const vkts::IUpdateThreadContext& updateContext);
 
 };
 
