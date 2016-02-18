@@ -6,23 +6,23 @@ layout (location = 2) in vec3 a_bitangent;
 layout (location = 3) in vec3 a_tangent;
 layout (location = 4) in vec2 a_texCoord;
 
-out vec3 v_g_eye;
-out vec3 v_g_normal;
-out vec3 v_g_bitangent;
-out vec3 v_g_tangent;
-out vec2 v_g_texCoord;
+out vec3 v_c_eye;
+out vec3 v_c_normal;
+out vec3 v_c_bitangent;
+out vec3 v_c_tangent;
+out vec2 v_c_texCoord;
 
 void main(void)
 {
     vec4 vertex = a_vertex;
 
-    v_g_eye = -vec3(vertex);
+    v_c_eye = -vec3(vertex);
 
-    v_g_normal = a_normal;
-    v_g_bitangent = a_bitangent;
-    v_g_tangent = a_tangent;
+    v_c_normal = a_normal;
+    v_c_bitangent = a_bitangent;
+    v_c_tangent = a_tangent;
 
-    v_g_texCoord = a_texCoord;
+    v_c_texCoord = a_texCoord;
 
     gl_Position = vertex;
 }

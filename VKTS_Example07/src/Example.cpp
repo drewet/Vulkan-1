@@ -27,7 +27,7 @@
 #include "Example.hpp"
 
 Example::Example(const int32_t displayIndex, const int32_t windowIndex) :
-		IUpdateThread(), displayIndex(displayIndex), windowIndex(windowIndex), initialResources(nullptr), surface(nullptr), commandPool(nullptr), imageAcquiredSemaphore(nullptr), renderingCompleteSemaphore(nullptr), descriptorSetLayout(nullptr), vertexViewProjectionUniformBuffer(nullptr), fragmentUniformBuffer(nullptr), vertexShaderModule(nullptr), geometryShaderModule(nullptr), fragmentShaderModule(nullptr), pipelineCache(nullptr), pipelineLayout(nullptr), sceneContext(nullptr), scene(nullptr), swapchain(nullptr), renderPass(nullptr), pipeline(nullptr), depthTexture(nullptr), depthStencilImageView(nullptr)
+		IUpdateThread(), displayIndex(displayIndex), windowIndex(windowIndex), initialResources(nullptr), surface(nullptr), commandPool(nullptr), imageAcquiredSemaphore(nullptr), renderingCompleteSemaphore(nullptr), descriptorSetLayout(nullptr), vertexViewProjectionUniformBuffer(nullptr), fragmentUniformBuffer(nullptr), vertexShaderModule(nullptr), tessellationControlShaderModule(nullptr), tessellationEvaluationShaderModule(nullptr), geometryShaderModule(nullptr), fragmentShaderModule(nullptr), pipelineCache(nullptr), pipelineLayout(nullptr), sceneContext(nullptr), scene(nullptr), swapchain(nullptr), renderPass(nullptr), pipeline(nullptr), depthTexture(nullptr), depthStencilImageView(nullptr)
 {
 	for (int32_t i = 0; i < VKTS_NUMBER_BUFFERS; i++)
 	{
@@ -366,8 +366,8 @@ VkBool32 Example::buildPipeline()
 	pipelineShaderStageCreateInfo[1].sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
 
 	pipelineShaderStageCreateInfo[1].flags = 0;
-	pipelineShaderStageCreateInfo[1].stage = VK_SHADER_STAGE_GEOMETRY_BIT;
-	pipelineShaderStageCreateInfo[1].module = geometryShaderModule->getShaderModule();
+	pipelineShaderStageCreateInfo[1].stage = VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT;
+	pipelineShaderStageCreateInfo[1].module = tessellationControlShaderModule->getShaderModule();
 	pipelineShaderStageCreateInfo[1].pName = "main";
 	pipelineShaderStageCreateInfo[1].pSpecializationInfo = nullptr;
 
@@ -375,10 +375,28 @@ VkBool32 Example::buildPipeline()
 	pipelineShaderStageCreateInfo[2].sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
 
 	pipelineShaderStageCreateInfo[2].flags = 0;
-	pipelineShaderStageCreateInfo[2].stage = VK_SHADER_STAGE_FRAGMENT_BIT;
-	pipelineShaderStageCreateInfo[2].module = fragmentShaderModule->getShaderModule();
+	pipelineShaderStageCreateInfo[2].stage = VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT;
+	pipelineShaderStageCreateInfo[2].module = tessellationEvaluationShaderModule->getShaderModule();
 	pipelineShaderStageCreateInfo[2].pName = "main";
 	pipelineShaderStageCreateInfo[2].pSpecializationInfo = nullptr;
+
+
+	pipelineShaderStageCreateInfo[3].sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
+
+	pipelineShaderStageCreateInfo[3].flags = 0;
+	pipelineShaderStageCreateInfo[3].stage = VK_SHADER_STAGE_GEOMETRY_BIT;
+	pipelineShaderStageCreateInfo[3].module = geometryShaderModule->getShaderModule();
+	pipelineShaderStageCreateInfo[3].pName = "main";
+	pipelineShaderStageCreateInfo[3].pSpecializationInfo = nullptr;
+
+
+	pipelineShaderStageCreateInfo[4].sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
+
+	pipelineShaderStageCreateInfo[4].flags = 0;
+	pipelineShaderStageCreateInfo[4].stage = VK_SHADER_STAGE_FRAGMENT_BIT;
+	pipelineShaderStageCreateInfo[4].module = fragmentShaderModule->getShaderModule();
+	pipelineShaderStageCreateInfo[4].pName = "main";
+	pipelineShaderStageCreateInfo[4].pSpecializationInfo = nullptr;
 
 	//
 
@@ -443,8 +461,19 @@ VkBool32 Example::buildPipeline()
 	pipelineInputAssemblyStateCreateInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO;
 
 	pipelineInputAssemblyStateCreateInfo.flags = 0;
-	pipelineInputAssemblyStateCreateInfo.topology = VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST;
+	pipelineInputAssemblyStateCreateInfo.topology = VK_PRIMITIVE_TOPOLOGY_PATCH_LIST;
 	pipelineInputAssemblyStateCreateInfo.primitiveRestartEnable = VK_FALSE;
+
+	//
+
+	VkPipelineTessellationStateCreateInfo pipelineTessellationStateCreateInfo;
+
+	memset(&pipelineTessellationStateCreateInfo, 0, sizeof(VkPipelineTessellationStateCreateInfo));
+
+	pipelineTessellationStateCreateInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO;
+
+	pipelineTessellationStateCreateInfo.flags = 0;
+	pipelineTessellationStateCreateInfo.patchControlPoints = 3;
 
 	//
 
@@ -601,7 +630,7 @@ VkBool32 Example::buildPipeline()
 	graphicsPipelineCreateInfo.pStages = pipelineShaderStageCreateInfo;
 	graphicsPipelineCreateInfo.pVertexInputState = &pipelineVertexInputCreateInfo;
 	graphicsPipelineCreateInfo.pInputAssemblyState = &pipelineInputAssemblyStateCreateInfo;
-	graphicsPipelineCreateInfo.pTessellationState = nullptr;
+	graphicsPipelineCreateInfo.pTessellationState = &pipelineTessellationStateCreateInfo;
 	graphicsPipelineCreateInfo.pViewportState = &pipelineViewportStateCreateInfo;
 	graphicsPipelineCreateInfo.pRasterizationState = &pipelineRasterizationStateCreateInfo;
 	graphicsPipelineCreateInfo.pMultisampleState = &pipelineMultisampleStateCreateInfo;
@@ -781,6 +810,24 @@ VkBool32 Example::buildShader()
 		return VK_FALSE;
 	}
 
+	auto tessellationControlShaderBinary = vkts::fileLoadBinary(VKTS_TESSELLATION_CONTROL_SHADER_NAME);
+
+	if (!tessellationControlShaderBinary.get())
+	{
+		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not load tessellation control shader: '%s'", VKTS_TESSELLATION_CONTROL_SHADER_NAME);
+
+		return VK_FALSE;
+	}
+
+	auto tessellationEvaluationShaderBinary = vkts::fileLoadBinary(VKTS_TESSELLATION_EVALUATION_SHADER_NAME);
+
+	if (!tessellationControlShaderBinary.get())
+	{
+		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not load tessellation evaluationshader: '%s'", VKTS_TESSELLATION_EVALUATION_SHADER_NAME);
+
+		return VK_FALSE;
+	}
+
 	auto geometryShaderBinary = vkts::fileLoadBinary(VKTS_GEOMETRY_SHADER_NAME);
 
 	if (!geometryShaderBinary.get())
@@ -806,6 +853,24 @@ VkBool32 Example::buildShader()
 	if (!vertexShaderModule.get())
 	{
 		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not create vertex shader module.");
+
+		return VK_FALSE;
+	}
+
+	tessellationControlShaderModule = vkts::shaderModuleCreate(initialResources->getDevice()->getDevice(), 0, tessellationControlShaderBinary->getSize(), (uint32_t*)tessellationControlShaderBinary->getData());
+
+	if (!tessellationControlShaderModule.get())
+	{
+		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not create tessellation control shader module.");
+
+		return VK_FALSE;
+	}
+
+	tessellationEvaluationShaderModule = vkts::shaderModuleCreate(initialResources->getDevice()->getDevice(), 0, tessellationEvaluationShaderBinary->getSize(), (uint32_t*)tessellationEvaluationShaderBinary->getData());
+
+	if (!tessellationControlShaderModule.get())
+	{
+		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not create tessellation evaluation shader module.");
 
 		return VK_FALSE;
 	}
@@ -1117,6 +1182,10 @@ VkBool32 Example::init(const vkts::IUpdateThreadContext& updateContext)
 	//
 
 	VkResult result;
+
+	//
+
+	// TODO: Check, if device an do tessellation and geometry shader.
 
 	//
 
@@ -1524,6 +1593,16 @@ void Example::terminate(const vkts::IUpdateThreadContext& updateContext)
 			if (vertexShaderModule.get())
 			{
 				vertexShaderModule->destroy();
+			}
+
+			if (tessellationControlShaderModule.get())
+			{
+				tessellationControlShaderModule->destroy();
+			}
+
+			if (tessellationEvaluationShaderModule.get())
+			{
+				tessellationEvaluationShaderModule->destroy();
 			}
 
 			if (geometryShaderModule.get())

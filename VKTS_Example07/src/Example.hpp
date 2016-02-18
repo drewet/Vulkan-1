@@ -34,12 +34,14 @@
 #define VKTS_NUMBER_DYNAMIC_STATES 2
 
 #define VKTS_NUMBER_BUFFERS 2
-#define VKTS_SHADER_STAGE_COUNT 3
+#define VKTS_SHADER_STAGE_COUNT 5
 #define VKTS_PIPELINE_CACHE_SIZE 1
 
 #define VKTS_BINDING_VERTEX_BUFFER 0
 
 #define VKTS_VERTEX_SHADER_NAME "shader/SPIR/V/phong_displace.vert.spv"
+#define VKTS_TESSELLATION_CONTROL_SHADER_NAME "shader/SPIR/V/phong_displace.tesc.spv"
+#define VKTS_TESSELLATION_EVALUATION_SHADER_NAME "shader/SPIR/V/phong_displace.tese.spv"
 #define VKTS_GEOMETRY_SHADER_NAME "shader/SPIR/V/phong_displace.geom.spv"
 #define VKTS_FRAGMENT_SHADER_NAME "shader/SPIR/V/phong_displace.frag.spv"
 
@@ -71,6 +73,8 @@ private:
 	vkts::IBufferObjectSP fragmentUniformBuffer;
 
 	vkts::IShaderModuleSP vertexShaderModule;
+	vkts::IShaderModuleSP tessellationControlShaderModule;
+	vkts::IShaderModuleSP tessellationEvaluationShaderModule;
 	vkts::IShaderModuleSP geometryShaderModule;
 	vkts::IShaderModuleSP fragmentShaderModule;
 

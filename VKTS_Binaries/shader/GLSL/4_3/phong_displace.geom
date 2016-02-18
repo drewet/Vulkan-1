@@ -42,6 +42,8 @@ void main(void)
     
         vec4 vertex = u_bufferViewProjection.viewMatrix * u_bufferTransform.modelMatrix * (gl_in[i].gl_Position + displaceVector);
     
+        // TODO: Recalculate tangents depending on displace.
+    
         v_f_eye = -vec3(vertex);
         v_f_normal = mat3(u_bufferViewProjection.viewMatrix) * u_bufferTransform.normalMatrix * v_g_normal[i];
         v_f_bitangent = mat3(u_bufferViewProjection.viewMatrix) * u_bufferTransform.normalMatrix * v_g_bitangent[i];
