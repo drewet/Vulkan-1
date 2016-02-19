@@ -66,7 +66,11 @@ VkBool32 Example::createTexture(vkts::IImageSP& currentImage, vkts::IDeviceMemor
 
 	//
 
-	currentDeviceMemoryImage = vkts::deviceMemoryCreate(initialResources->getDevice()->getDevice(), memoryRequirements, VK_MAX_MEMORY_TYPES, initialResources->getPhysicalDevice()->getPhysicalDeviceMemoryProperties().memoryTypes, memoryPropertyFlagBits);
+	VkPhysicalDeviceMemoryProperties physicalDeviceMemoryProperties;
+
+	initialResources->getPhysicalDevice()->getPhysicalDeviceMemoryProperties(physicalDeviceMemoryProperties);
+
+	currentDeviceMemoryImage = vkts::deviceMemoryCreate(initialResources->getDevice()->getDevice(), memoryRequirements, VK_MAX_MEMORY_TYPES, physicalDeviceMemoryProperties.memoryTypes, memoryPropertyFlagBits);
 
 	if (!currentDeviceMemoryImage.get())
 	{
@@ -915,7 +919,11 @@ VkBool32 Example::buildVertexBuffer()
 
 	vertexBuffer->getBufferMemoryRequirements(memoryRequirements);
 
-	deviceMemoryVertexBuffer = vkts::deviceMemoryCreate(initialResources->getDevice()->getDevice(), memoryRequirements, VK_MAX_MEMORY_TYPES, initialResources->getPhysicalDevice()->getPhysicalDeviceMemoryProperties().memoryTypes, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT);
+	VkPhysicalDeviceMemoryProperties physicalDeviceMemoryProperties;
+
+	initialResources->getPhysicalDevice()->getPhysicalDeviceMemoryProperties(physicalDeviceMemoryProperties);
+
+	deviceMemoryVertexBuffer = vkts::deviceMemoryCreate(initialResources->getDevice()->getDevice(), memoryRequirements, VK_MAX_MEMORY_TYPES, physicalDeviceMemoryProperties.memoryTypes, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT);
 
 	if (!deviceMemoryVertexBuffer.get())
 	{

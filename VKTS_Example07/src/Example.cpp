@@ -1185,10 +1185,6 @@ VkBool32 Example::init(const vkts::IUpdateThreadContext& updateContext)
 
 	//
 
-	// TODO: Check, if device an do tessellation and geometry shader.
-
-	//
-
 	if (!vkts::wsiGatherNeededInstanceExtensions())
 	{
 		vkts::logPrint(VKTS_LOG_WARNING, "Example: Could not gather instance extensions. Skipping scene loading.");
@@ -1220,6 +1216,22 @@ VkBool32 Example::init(const vkts::IUpdateThreadContext& updateContext)
 
 		return VK_FALSE;
 	}
+
+	//
+
+	VkPhysicalDeviceFeatures physicalDeviceFeatures;
+
+	physicalDevice->getPhysicalDeviceFeatures(physicalDeviceFeatures);
+
+	// Check, if geometry and tessellation shader are available.
+	if (!physicalDeviceFeatures.geometryShader || !physicalDeviceFeatures.tessellationShader)
+	{
+		vkts::logPrint(VKTS_LOG_ERROR, "Example: Physical device not capable of geometry and tessellation shaders.");
+
+		return VK_FALSE;
+	}
+
+	//
 
 
 	if (!vkts::wsiGatherNeededDeviceExtensions(physicalDevice->getPhysicalDevice()))

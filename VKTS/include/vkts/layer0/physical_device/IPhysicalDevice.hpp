@@ -51,11 +51,13 @@ public:
 
     virtual const VkInstance getInstance() const = 0;
 
-    virtual const VkPhysicalDeviceMemoryProperties& getPhysicalDeviceMemoryProperties(const VkBool32 refresh = VK_FALSE) = 0;
+    virtual void getPhysicalDeviceFeatures(VkPhysicalDeviceFeatures& physicalDeviceFeature) const = 0;
 
-    virtual void getGetPhysicalDeviceFormatProperties(VkFormatProperties& formatProperties, const VkFormat format) = 0;
+    virtual void getPhysicalDeviceMemoryProperties(VkPhysicalDeviceMemoryProperties& physicalDeviceMemoryProperties) const = 0;
 
-    virtual VkResult getGetPhysicalDeviceImageFormatProperties(VkImageFormatProperties& imageFormatProperties, const VkFormat format, const VkImageType type, const VkImageTiling tiling, const VkImageUsageFlags usage, const VkImageCreateFlags flags) = 0;
+    virtual void getGetPhysicalDeviceFormatProperties(VkFormatProperties& formatProperties, const VkFormat format) const = 0;
+
+    virtual void getGetPhysicalDeviceImageFormatProperties(VkImageFormatProperties& imageFormatProperties, const VkFormat format, const VkImageType type, const VkImageTiling tiling, const VkImageUsageFlags usage, const VkImageCreateFlags flags) const = 0;
 
     virtual VkBool32 isImageTilingAvailable(const VkImageTiling imageTiling, const VkFormat format, const VkImageType type, const VkImageCreateFlags flags, const VkExtent3D& extent, const uint32_t mipLevels, const uint32_t arraySize, const VkSampleCountFlags sampleCounts, const VkDeviceSize resourceSize) = 0;
 

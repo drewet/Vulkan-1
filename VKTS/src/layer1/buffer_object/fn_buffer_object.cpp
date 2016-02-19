@@ -50,7 +50,10 @@ static VkBool32 bufferObjectPrepare(IBufferSP& buffer, IDeviceMemorySP& deviceMe
 
     buffer->getBufferMemoryRequirements(memoryRequirements);
 
-    deviceMemory = deviceMemoryCreate(initialResources->getDevice()->getDevice(), memoryRequirements, initialResources->getPhysicalDevice()->getPhysicalDeviceMemoryProperties().memoryTypeCount, initialResources->getPhysicalDevice()->getPhysicalDeviceMemoryProperties().memoryTypes, memoryPropertyFlag);
+    VkPhysicalDeviceMemoryProperties physicalDeviceMemoryProperties;
+    initialResources->getPhysicalDevice()->getPhysicalDeviceMemoryProperties(physicalDeviceMemoryProperties);
+
+    deviceMemory = deviceMemoryCreate(initialResources->getDevice()->getDevice(), memoryRequirements, physicalDeviceMemoryProperties.memoryTypeCount, physicalDeviceMemoryProperties.memoryTypes, memoryPropertyFlag);
 
     if (!deviceMemory.get())
     {

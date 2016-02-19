@@ -43,9 +43,6 @@ private:
 
     const VkInstance instance;
 
-    VkBool32 physicalDeviceMemoryPropertiesDirty;
-    VkPhysicalDeviceMemoryProperties physicalDeviceMemoryProperties;
-
     std::vector<VkQueueFamilyProperties> allQueueFamilyProperties;
 
 public:
@@ -70,11 +67,13 @@ public:
 
     virtual const VkInstance getInstance() const override;
 
-    virtual const VkPhysicalDeviceMemoryProperties& getPhysicalDeviceMemoryProperties(const VkBool32 refresh = VK_FALSE) override;
+    virtual void getPhysicalDeviceFeatures(VkPhysicalDeviceFeatures& physicalDeviceFeature) const override;
 
-    virtual void getGetPhysicalDeviceFormatProperties(VkFormatProperties& formatProperties, const VkFormat format) override;
+    virtual void getPhysicalDeviceMemoryProperties(VkPhysicalDeviceMemoryProperties& physicalDeviceMemoryProperties) const override;
 
-    virtual VkResult getGetPhysicalDeviceImageFormatProperties(VkImageFormatProperties& imageFormatProperties, const VkFormat format, const VkImageType type, const VkImageTiling tiling, const VkImageUsageFlags usage, const VkImageCreateFlags flags) override;
+    virtual void getGetPhysicalDeviceFormatProperties(VkFormatProperties& formatProperties, const VkFormat format) const override;
+
+    virtual void getGetPhysicalDeviceImageFormatProperties(VkImageFormatProperties& imageFormatProperties, const VkFormat format, const VkImageType type, const VkImageTiling tiling, const VkImageUsageFlags usage, const VkImageCreateFlags flags) const override;
 
     virtual VkBool32 isImageTilingAvailable(const VkImageTiling imageTiling, const VkFormat format, const VkImageType type, const VkImageCreateFlags flags, const VkExtent3D& extent, const uint32_t mipLevels, const uint32_t arrayLayers, const VkSampleCountFlags sampleCounts, const VkDeviceSize resourceSize) override;
 

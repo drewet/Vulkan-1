@@ -93,7 +93,10 @@ static VkBool32 texturePrepare(IImageSP& image, IDeviceMemorySP& deviceMemory, c
 
     //
 
-    deviceMemory = deviceMemoryCreate(initialResources->getDevice()->getDevice(), memoryRequirements, initialResources->getPhysicalDevice()->getPhysicalDeviceMemoryProperties().memoryTypeCount, initialResources->getPhysicalDevice()->getPhysicalDeviceMemoryProperties().memoryTypes, memoryPropertyFlags);
+    VkPhysicalDeviceMemoryProperties physicalDeviceMemoryProperties;
+    initialResources->getPhysicalDevice()->getPhysicalDeviceMemoryProperties(physicalDeviceMemoryProperties);
+
+    deviceMemory = deviceMemoryCreate(initialResources->getDevice()->getDevice(), memoryRequirements, physicalDeviceMemoryProperties.memoryTypeCount, physicalDeviceMemoryProperties.memoryTypes, memoryPropertyFlags);
 
     if (!deviceMemory.get())
     {
@@ -140,7 +143,10 @@ static VkBool32 texturePrepare(IBufferSP& buffer, IDeviceMemorySP& deviceMemory,
 
     //
 
-    deviceMemory = deviceMemoryCreate(initialResources->getDevice()->getDevice(), memoryRequirements, initialResources->getPhysicalDevice()->getPhysicalDeviceMemoryProperties().memoryTypeCount, initialResources->getPhysicalDevice()->getPhysicalDeviceMemoryProperties().memoryTypes, memoryPropertyFlags);
+    VkPhysicalDeviceMemoryProperties physicalDeviceMemoryProperties;
+    initialResources->getPhysicalDevice()->getPhysicalDeviceMemoryProperties(physicalDeviceMemoryProperties);
+
+    deviceMemory = deviceMemoryCreate(initialResources->getDevice()->getDevice(), memoryRequirements, physicalDeviceMemoryProperties.memoryTypeCount, physicalDeviceMemoryProperties.memoryTypes, memoryPropertyFlags);
 
     if (!deviceMemory.get())
     {
