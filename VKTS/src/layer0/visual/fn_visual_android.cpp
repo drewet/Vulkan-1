@@ -36,9 +36,6 @@
 #include "../input/KeyInput.hpp"
 #include "../input/MouseInput.hpp"
 
-// TODO: Later remove EGL.
-#include <EGL/egl.h>
-
 #define VKTS_WINDOWS_MAX_DISPLAYS 1
 
 #define VKTS_WINDOWS_MAX_WINDOWS 1
@@ -58,9 +55,6 @@ static int32_t g_height = -1;
 static vkts::NativeDisplaySP g_defaultDisplay;
 
 static vkts::NativeWindowSP g_defaultWindow;
-
-// TODO: Later remove EGL.
-static EGLDisplay g_eglDisplay;
 
 //
 
@@ -370,14 +364,6 @@ VkBool32 VKTS_APIENTRY _visualInit()
         return VK_FALSE;
     }
 
-    // TODO: Later remove EGL.
-    ::g_eglDisplay = eglGetDisplay(EGL_DEFAULT_DISPLAY);
-
-    if (::g_eglDisplay == EGL_NO_DISPLAY)
-    {
-        return VK_FALSE;
-    }
-
     //
 
     ::g_defaultDisplay = NativeDisplaySP(new NativeDisplay(0, VK_TRUE, g_width, g_height, nullptr));
@@ -549,9 +535,6 @@ void VKTS_APIENTRY _visualTerminate()
 
         ::g_defaultDisplay = NativeDisplaySP();
     }
-
-    // TODO: Later remove EGL.
-    ::g_eglDisplay = EGL_NO_DISPLAY;
 }
 
 }
