@@ -49,9 +49,6 @@ Vulkan examples based on VKTS:
 
 
 VKTS_Example07 - Multi-threaded terrain rendering using normal and displacement mapping. (Work in progress)  
-
-
-VKTS_Example08 - Font rendering. (Work in progress)  
     
     
 VKTS test program:
