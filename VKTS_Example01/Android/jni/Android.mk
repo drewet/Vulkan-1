@@ -53,7 +53,6 @@ LOCAL_CPPFLAGS += -fexceptions
 
 LOCAL_C_INCLUDES:= $(LOCAL_PATH)/../../../VKTS/include/
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../VKTS_External/include
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../VKTS_External/include/freetype2
 
 LOCAL_C_INCLUDES += C:/VulkanSDK/1.0.3.1/Include 
 
@@ -64,7 +63,7 @@ LOCAL_SRC_FILES := $(PROJECT_FILES)
 # Libs.
 
 # TODO: Later remove EGL.
-LOCAL_LDLIBS    := -landroid -lEGL
+LOCAL_LDLIBS    := -landroid
 
 LOCAL_STATIC_LIBRARIES := VKTS
 LOCAL_STATIC_LIBRARIES += android_native_app_glue

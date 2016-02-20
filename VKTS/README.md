@@ -31,7 +31,6 @@ Used libraries (beside C++ 11):
 
 - [LunarG Vulkan SDK](http://vulkan.lunarg.com)
 - [GLM](http://glm.g-truc.net)
-- [FreeType](http://www.freetype.org)
 
 
 Supported platforms:
@@ -64,7 +63,6 @@ Features:
 - Blender Python exporter for the VKTS scene file format.
 - GLSL to SPIR-V build script.
 - Interpolator and converter for constant, linear and bezier key frame data.
-- FreeType font support.
 
 
 How to build:
