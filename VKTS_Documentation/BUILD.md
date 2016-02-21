@@ -90,7 +90,13 @@ Using make:
 Using Android NDK:
 ------------------
 
-The following command creates the Andorid project:
+The assets are not packaged in the apk file. Instead they are located in the `/sdcard/Download/VKTS_Binaries`
+folder on the device.
+The scripts `android_copy.bat` and `android_copy.sh` located in [VKTS_Binaries](VKTS_Binaries/README.md) do
+create the directory and copies all the files from the host system to the device.
+
+
+The following command creates the Android project:
 
 1. Open console in Android project folder and execute following command without the comment:
     - android.bat update project -p . -t android-22    // Has only do be done once.
