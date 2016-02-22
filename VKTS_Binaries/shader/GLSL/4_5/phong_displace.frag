@@ -1,4 +1,4 @@
-#version 430 core
+#version 450 core
 
 layout (binding = 2, std140) uniform _u_bufferFrag {
 	vec3 light;

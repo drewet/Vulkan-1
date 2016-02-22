@@ -1,4 +1,4 @@
-#version 430 core
+#version 450 core
 
 layout(triangles, equal_spacing, ccw) in;
 

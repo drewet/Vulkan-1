@@ -1,4 +1,4 @@
-#version 430 core
+#version 450 core
 
 #define VKTS_DISPLACE_FACTOR 0.5
 
