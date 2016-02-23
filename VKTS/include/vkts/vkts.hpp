@@ -479,12 +479,4 @@
 
 #include <vkts/layer1/interpolator/fn_interpolator.hpp>
 
-/**
- * Font.
- */
-
-#include <vkts/layer1/font/IFont.hpp>
-
-#include <vkts/layer1/font/fn_font.hpp>
-
 #endif /* VKTS_HPP_ */

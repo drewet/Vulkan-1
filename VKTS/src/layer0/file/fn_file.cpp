@@ -42,7 +42,9 @@ static VkBool32 fileSave(const char* filename, const void* data, const size_t si
 
     FILE* file;
 
-    file = fopen(filename, "wb");
+    std::string saveFilename = VKTS_BASE_DIRECTORY + std::string(filename);
+
+    file = fopen(saveFilename.c_str(), "wb");
 
     if (!file)
     {
@@ -67,7 +69,9 @@ IBinaryBufferSP VKTS_APIENTRY fileLoadBinary(const char* filename)
 
     FILE* file;
 
-    file = fopen(filename, "rb");
+    std::string loadFilename = VKTS_BASE_DIRECTORY + std::string(filename);
+
+    file = fopen(loadFilename.c_str(), "rb");
 
     if (!file)
     {

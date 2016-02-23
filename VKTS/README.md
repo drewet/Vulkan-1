@@ -31,7 +31,6 @@ Used libraries (beside C++ 11):
 
 - [LunarG Vulkan SDK](http://vulkan.lunarg.com)
 - [GLM](http://glm.g-truc.net)
-- [FreeType](http://www.freetype.org)
 
 
 Supported platforms:
@@ -64,7 +63,6 @@ Features:
 - Blender Python exporter for the VKTS scene file format.
 - GLSL to SPIR-V build script.
 - Interpolator and converter for constant, linear and bezier key frame data.
-- FreeType font support.
 
 
 How to build:
@@ -75,5 +73,13 @@ How to build:
 
 Changelog:
 ----------
+
+02/23/2016 - Fixed and improved the task executor engine.
+
+02/21/2016 - Updated to GLM 0.9.7.3.
+           - Extended file load and save functionality for Android devices.
+
+02/19/2016 - Refactored physical device wrapper class and added new query function.
+           - Under Linux, the VK_KHR_xcb_surface extension is now prefered.
 
 02/16/2016 - First public release.

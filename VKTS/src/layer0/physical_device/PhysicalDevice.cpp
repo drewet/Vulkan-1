@@ -30,7 +30,7 @@ namespace vkts
 {
 
 PhysicalDevice::PhysicalDevice(const VkPhysicalDevice physicalDevice, const uint32_t index, const VkInstance instance) :
-    IPhysicalDevice(), physicalDevice(physicalDevice), index(index), instance(instance), physicalDeviceMemoryPropertiesDirty(VK_TRUE), physicalDeviceMemoryProperties(), allQueueFamilyProperties()
+    IPhysicalDevice(), physicalDevice(physicalDevice), index(index), instance(instance), allQueueFamilyProperties()
 {
 }
 
@@ -57,34 +57,28 @@ const VkInstance PhysicalDevice::getInstance() const
     return instance;
 }
 
-const VkPhysicalDeviceMemoryProperties& PhysicalDevice::getPhysicalDeviceMemoryProperties(const VkBool32 refresh)
+void PhysicalDevice::getPhysicalDeviceFeatures(VkPhysicalDeviceFeatures& physicalDeviceFeature) const
 {
-    if (refresh || physicalDeviceMemoryPropertiesDirty)
-    {
-        vkGetPhysicalDeviceMemoryProperties(physicalDevice, &physicalDeviceMemoryProperties);
-
-        physicalDeviceMemoryPropertiesDirty = VK_FALSE;
-    }
-
-    return physicalDeviceMemoryProperties;
+	vkGetPhysicalDeviceFeatures(physicalDevice, &physicalDeviceFeature);
 }
 
-void PhysicalDevice::getGetPhysicalDeviceFormatProperties(VkFormatProperties& formatProperties, const VkFormat format)
+void PhysicalDevice::getPhysicalDeviceMemoryProperties(VkPhysicalDeviceMemoryProperties& physicalDeviceMemoryProperties) const
+{
+    vkGetPhysicalDeviceMemoryProperties(physicalDevice, &physicalDeviceMemoryProperties);
+}
+
+void PhysicalDevice::getGetPhysicalDeviceFormatProperties(VkFormatProperties& formatProperties, const VkFormat format) const
 {
     vkGetPhysicalDeviceFormatProperties(physicalDevice, format, &formatProperties);
 }
 
-VkResult PhysicalDevice::getGetPhysicalDeviceImageFormatProperties(VkImageFormatProperties& imageFormatProperties, const VkFormat format, const VkImageType type, const VkImageTiling tiling, const VkImageUsageFlags usage, const VkImageCreateFlags flags)
+void PhysicalDevice::getGetPhysicalDeviceImageFormatProperties(VkImageFormatProperties& imageFormatProperties, const VkFormat format, const VkImageType type, const VkImageTiling tiling, const VkImageUsageFlags usage, const VkImageCreateFlags flags) const
 {
-    return vkGetPhysicalDeviceImageFormatProperties(physicalDevice, format, type, tiling, usage, flags, &imageFormatProperties);
+    vkGetPhysicalDeviceImageFormatProperties(physicalDevice, format, type, tiling, usage, flags, &imageFormatProperties);
 }
 
 VkBool32 PhysicalDevice::isImageTilingAvailable(const VkImageTiling imageTiling, const VkFormat format, const VkImageType type, const VkImageCreateFlags flags, const VkExtent3D& extent, const uint32_t mipLevels, const uint32_t arrayLayers, const VkSampleCountFlags sampleCounts, const VkDeviceSize resourceSize)
 {
-    VkResult result;
-
-    //
-
     VkFormatProperties formatProperties;
 
     getGetPhysicalDeviceFormatProperties(formatProperties, format);
@@ -105,14 +99,7 @@ VkBool32 PhysicalDevice::isImageTilingAvailable(const VkImageTiling imageTiling,
 
     VkImageFormatProperties imageFormatProperties;
 
-    result = getGetPhysicalDeviceImageFormatProperties(imageFormatProperties, format, type, imageTiling, VK_IMAGE_USAGE_SAMPLED_BIT, flags);
-
-    if (result != VK_SUCCESS)
-    {
-        vkts::logPrint(VKTS_LOG_ERROR, "PhysicalDevice: Could not get image format properties.");
-
-        return VK_FALSE;
-    }
+    getGetPhysicalDeviceImageFormatProperties(imageFormatProperties, format, type, imageTiling, VK_IMAGE_USAGE_SAMPLED_BIT, flags);
 
     if (imageFormatProperties.maxExtent.width < extent.width || imageFormatProperties.maxExtent.height < extent.height || imageFormatProperties.maxExtent.depth < extent.depth)
     {

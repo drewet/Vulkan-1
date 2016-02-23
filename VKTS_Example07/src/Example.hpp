@@ -34,12 +34,14 @@
 #define VKTS_NUMBER_DYNAMIC_STATES 2
 
 #define VKTS_NUMBER_BUFFERS 2
-#define VKTS_SHADER_STAGE_COUNT 3
+#define VKTS_SHADER_STAGE_COUNT 5
 #define VKTS_PIPELINE_CACHE_SIZE 1
 
 #define VKTS_BINDING_VERTEX_BUFFER 0
 
 #define VKTS_VERTEX_SHADER_NAME "shader/SPIR/V/phong_displace.vert.spv"
+#define VKTS_TESSELLATION_CONTROL_SHADER_NAME "shader/SPIR/V/phong_displace.tesc.spv"
+#define VKTS_TESSELLATION_EVALUATION_SHADER_NAME "shader/SPIR/V/phong_displace.tese.spv"
 #define VKTS_GEOMETRY_SHADER_NAME "shader/SPIR/V/phong_displace.geom.spv"
 #define VKTS_FRAGMENT_SHADER_NAME "shader/SPIR/V/phong_displace.frag.spv"
 
@@ -71,6 +73,8 @@ private:
 	vkts::IBufferObjectSP fragmentUniformBuffer;
 
 	vkts::IShaderModuleSP vertexShaderModule;
+	vkts::IShaderModuleSP tessellationControlShaderModule;
+	vkts::IShaderModuleSP tessellationEvaluationShaderModule;
 	vkts::IShaderModuleSP geometryShaderModule;
 	vkts::IShaderModuleSP fragmentShaderModule;
 
@@ -95,78 +99,58 @@ private:
 
 	vkts::ICommandBuffersSP cmdBuffer[VKTS_NUMBER_BUFFERS];
 
-	VkBool32
-	buildCmdBuffer(const int32_t usedBuffer);
+	VkBool32 buildCmdBuffer(const int32_t usedBuffer);
 
-	VkBool32
-	buildFramebuffer(const int32_t usedBuffer);
+	VkBool32 buildFramebuffer(const int32_t usedBuffer);
 
-	VkBool32
-	buildSwapchainImageView(const int32_t usedBuffer);
+	VkBool32 buildSwapchainImageView(const int32_t usedBuffer);
 
-	VkBool32
-	updateDescriptorSets();
+	VkBool32 updateDescriptorSets();
 
-	VkBool32
-	buildScene(const vkts::ICommandBuffersSP& cmdBuffer);
+	VkBool32 buildScene(const vkts::ICommandBuffersSP& cmdBuffer);
 
-	VkBool32
-	buildDepthStencilImageView();
+	VkBool32 buildDepthStencilImageView();
 
-	VkBool32
-	buildDepthTexture(const vkts::ICommandBuffersSP& cmdBuffer);
+	VkBool32 buildDepthTexture(const vkts::ICommandBuffersSP& cmdBuffer);
 
-	VkBool32
-	buildPipeline();
+	VkBool32 buildPipeline();
 
-	VkBool32
-	buildRenderPass();
+	VkBool32 buildRenderPass();
 
-	VkBool32
-	buildPipelineLayout();
+	VkBool32 buildPipelineLayout();
 
-	VkBool32
-	buildPipelineCache();
+	VkBool32 buildPipelineCache();
 
-	VkBool32
-	buildDescriptorSetLayout();
+	VkBool32 buildDescriptorSetLayout();
 
-	VkBool32
-	buildShader();
+	VkBool32 buildShader();
 
-	VkBool32
-	buildUniformBuffers();
+	VkBool32 buildUniformBuffers();
 
-	VkBool32
-	buildResources(const vkts::IUpdateThreadContext& updateContext);
+	VkBool32 buildResources(const vkts::IUpdateThreadContext& updateContext);
 
-	void
-	terminateResources(const vkts::IUpdateThreadContext& updateContext);
+	void terminateResources(const vkts::IUpdateThreadContext& updateContext);
 
 public:
 
 	Example(const int32_t displayIndex, const int32_t windowIndex);
 
-	virtual
-	~Example();
+	virtual ~Example();
 
 	//
 	// Vulkan initialization.
 	//
-	virtual VkBool32
-	init(const vkts::IUpdateThreadContext& updateContext);
+	virtual VkBool32 init(const vkts::IUpdateThreadContext& updateContext);
 
 	//
 	// Vulkan update.
 	//
-	virtual VkBool32
-	update(const vkts::IUpdateThreadContext& updateContext);
+	virtual VkBool32 update(const vkts::IUpdateThreadContext& updateContext);
 
 	//
 	// Vulkan termination.
 	//
-	virtual void
-	terminate(const vkts::IUpdateThreadContext& updateContext);
+	virtual void terminate(const vkts::IUpdateThreadContext& updateContext);
 
 };
 

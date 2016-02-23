@@ -3,7 +3,11 @@ VulKan ToolS (VKTS) Binaries:
 
 This folder and sub folders contains all executables, shaders and assets. The examples are copied  
 into this folder after the build. This folder has to be the working directory, otherwise shaders  
-and assets are not found.  
+and assets are not found.
+
+Using Android, the asset files have to be loacted in `/sdcard/Download/VKTS_Binaries` on the device.
+The scripts `android_copy.bat` and `android_copy.sh` do create the directory and copies all the files from the host system to the device.
+  
 
 Inside `shader/GLSL/` there are two build scripts, which do compile all available GLSL source files.  
 The resulting SPIR-V binaries are deployed into `shader/SPIR/V`.  

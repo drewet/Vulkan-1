@@ -70,6 +70,16 @@ VKTS_APICALL int32_t VKTS_APIENTRY engineGetNumberUpdateThreads();
 /**
  * Not thread Safe.
  */
+VKTS_APICALL VkBool32 VKTS_APIENTRY engineSetTaskExecutorCount(const uint32_t count);
+
+/**
+ * Not thread Safe.
+ */
+VKTS_APICALL uint32_t VKTS_APIENTRY engineGetTaskExecutorCount();
+
+/**
+ * Not thread Safe.
+ */
 VKTS_APICALL void VKTS_APIENTRY engineTerminate();
 
 }

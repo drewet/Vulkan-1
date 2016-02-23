@@ -40,8 +40,8 @@ LOCAL_CPPFLAGS += -fexceptions
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../include
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../VKTS_External/include
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../VKTS_External/include/freetype2
 
+# TODO: Remove, as soon as Vulkan is added to the NDK.
 LOCAL_C_INCLUDES += C:/VulkanSDK/1.0.3.1/Include 
  
 # Sources.

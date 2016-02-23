@@ -139,4 +139,14 @@ VkBool32 TaskQueue::receiveTask(ITaskSP& task)
     return VK_TRUE;
 }
 
+void TaskQueue::reset()
+{
+	TaskQueueElement* taskQueueElement = nullptr;
+
+	while (!queue.empty())
+	{
+		queue.take(taskQueueElement);
+	}
+}
+
 } /* namespace vkts */

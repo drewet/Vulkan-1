@@ -27,26 +27,7 @@
 #include "Example.hpp"
 
 Example::Example(const int32_t displayIndex, const int32_t windowIndex) :
-		IUpdateThread(),
-		displayIndex(displayIndex),
-		windowIndex(windowIndex),
-		instance(nullptr),
-		physicalDevice(nullptr),
-		device(nullptr),
-		surface(nullptr),
-		queue(nullptr),
-		commandPool(nullptr),
-		imageAcquiredSemaphore(nullptr),
-        renderingCompleteSemaphore(nullptr),
-		vertexBuffer(VK_NULL_HANDLE),
-		deviceMemoryVertexBuffer(VK_NULL_HANDLE),
-		vertexShaderModule(VK_NULL_HANDLE),
-		fragmentShaderModule(VK_NULL_HANDLE),
-		pipelineCache(VK_NULL_HANDLE),
-		pipelineLayout(VK_NULL_HANDLE),
-		swapchain(nullptr),
-		renderPass(nullptr),
-		pipeline(VK_NULL_HANDLE)
+		IUpdateThread(), displayIndex(displayIndex), windowIndex(windowIndex), instance(nullptr), physicalDevice(nullptr), device(nullptr), surface(nullptr), queue(nullptr), commandPool(nullptr), imageAcquiredSemaphore(nullptr), renderingCompleteSemaphore(nullptr), vertexBuffer(VK_NULL_HANDLE), deviceMemoryVertexBuffer(VK_NULL_HANDLE), vertexShaderModule(VK_NULL_HANDLE), fragmentShaderModule(VK_NULL_HANDLE), pipelineCache(VK_NULL_HANDLE), pipelineLayout(VK_NULL_HANDLE), swapchain(nullptr), renderPass(nullptr), pipeline(VK_NULL_HANDLE)
 {
 	for (int32_t i = 0; i < VKTS_NUMBER_BUFFERS; i++)
 	{
@@ -535,9 +516,7 @@ VkBool32 Example::buildShader()
 
 	if (!vertexShaderBinary.get())
 	{
-		vkts::logPrint(VKTS_LOG_ERROR,
-				"Example: Could not load vertex shader: '%s'",
-				VKTS_VERTEX_SHADER_NAME);
+		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not load vertex shader: '%s'", VKTS_VERTEX_SHADER_NAME);
 
 		return VK_FALSE;
 	}
@@ -546,9 +525,7 @@ VkBool32 Example::buildShader()
 
 	if (!fragmentShaderBinary.get())
 	{
-		vkts::logPrint(VKTS_LOG_ERROR,
-				"Example: Could not load fragment shader: '%s'",
-				VKTS_FRAGMENT_SHADER_NAME);
+		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not load fragment shader: '%s'", VKTS_FRAGMENT_SHADER_NAME);
 
 		return VK_FALSE;
 	}
@@ -568,6 +545,7 @@ VkBool32 Example::buildShader()
 	shaderModuleCreateInfo.pCode = (const uint32_t*)vertexShaderBinary->getData();
 
 	result = vkCreateShaderModule(device->getDevice(), &shaderModuleCreateInfo, nullptr, &vertexShaderModule);
+
 	if (result != VK_SUCCESS)
 	{
 		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not create vertex shader module.");
@@ -588,8 +566,7 @@ VkBool32 Example::buildShader()
 
 	if (result != VK_SUCCESS)
 	{
-		vkts::logPrint(VKTS_LOG_ERROR,
-				"Example: Could not create fragment shader module.");
+		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not create fragment shader module.");
 
 		return VK_FALSE;
 	}
@@ -639,11 +616,10 @@ VkBool32 Example::buildVertexBuffer()
 	memoryAllocInfo.allocationSize = memoryRequirements.size;
 	memoryAllocInfo.memoryTypeIndex = 0;	// Gathered in next function.
 
-	if (!vkts::commonGetMemoryTypeIndex(VK_MAX_MEMORY_TYPES,
-			physicalDevice->getPhysicalDeviceMemoryProperties().memoryTypes,
-			memoryRequirements.memoryTypeBits,
-			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT,
-			memoryAllocInfo.memoryTypeIndex))
+	VkPhysicalDeviceMemoryProperties physicalDeviceMemoryProperties;
+	physicalDevice->getPhysicalDeviceMemoryProperties(physicalDeviceMemoryProperties);
+
+	if (!vkts::commonGetMemoryTypeIndex(VK_MAX_MEMORY_TYPES, physicalDeviceMemoryProperties.memoryTypes, memoryRequirements.memoryTypeBits, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT, memoryAllocInfo.memoryTypeIndex))
 	{
 		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not get memory type index.");
 
@@ -653,6 +629,7 @@ VkBool32 Example::buildVertexBuffer()
 	void* mappedData;
 
 	result = vkAllocateMemory(device->getDevice(), &memoryAllocInfo, nullptr, &deviceMemoryVertexBuffer);
+
 	if (result != VK_SUCCESS)
 	{
 		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not allocate memory.");
@@ -661,6 +638,7 @@ VkBool32 Example::buildVertexBuffer()
 	}
 
 	result = vkMapMemory(device->getDevice(), deviceMemoryVertexBuffer, 0, memoryRequirements.size, 0, &mappedData);
+
 	if (result != VK_SUCCESS)
 	{
 		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not map memory.");
@@ -673,6 +651,7 @@ VkBool32 Example::buildVertexBuffer()
 	vkUnmapMemory(device->getDevice(), deviceMemoryVertexBuffer);
 
 	result = vkBindBufferMemory(device->getDevice(), vertexBuffer, deviceMemoryVertexBuffer, 0);
+
 	if (result != VK_SUCCESS)
 	{
 		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not bind buffer memory.");
@@ -698,12 +677,7 @@ VkBool32 Example::buildResources(const vkts::IUpdateThreadContext& updateContext
 
 	VkSwapchainKHR oldSwapchain = lastSwapchain.get() ? lastSwapchain->getSwapchain() : VK_NULL_HANDLE;
 
-	swapchain = vkts::wsiSwapchainCreate(physicalDevice->getPhysicalDevice(), device->getDevice(),
-			0, surface->getSurface(),
-			VKTS_NUMBER_BUFFERS, extent2D, 1, VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT,
-			VK_SHARING_MODE_EXCLUSIVE, 0, nullptr, VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR,
-			VK_TRUE,
-			oldSwapchain);
+	swapchain = vkts::wsiSwapchainCreate(physicalDevice->getPhysicalDevice(), device->getDevice(), 0, surface->getSurface(), VKTS_NUMBER_BUFFERS, extent2D, 1, VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT, VK_SHARING_MODE_EXCLUSIVE, 0, nullptr, VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR, VK_TRUE, oldSwapchain);
 
 	if (!swapchain.get())
 	{
@@ -819,8 +793,7 @@ VkBool32 Example::buildResources(const vkts::IUpdateThreadContext& updateContext
 	return VK_TRUE;
 }
 
-void Example::terminateResources(
-		const vkts::IUpdateThreadContext& updateContext)
+void Example::terminateResources(const vkts::IUpdateThreadContext& updateContext)
 {
 	if (device.get())
 	{

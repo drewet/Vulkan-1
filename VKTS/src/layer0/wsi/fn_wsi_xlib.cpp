@@ -30,53 +30,55 @@
 
 #include <X11/Xlib-xcb.h>
 
-PFN_vkCreateXlibSurfaceKHR vktsCreateXlibSurfaceKHR;
-PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR vktsGetPhysicalDeviceXlibPresentationSupportKHR;
-
 PFN_vkCreateXcbSurfaceKHR vktsCreateXcbSurfaceKHR;
 PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR vktsGetPhysicalDeviceXcbPresentationSupportKHR;
+
+PFN_vkCreateXlibSurfaceKHR vktsCreateXlibSurfaceKHR;
+PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR vktsGetPhysicalDeviceXlibPresentationSupportKHR;
 
 namespace vkts
 {
 
-static VkBool32 g_hasXlib = VK_FALSE;
 static VkBool32 g_hasXcb = VK_FALSE;
+static VkBool32 g_hasXlib = VK_FALSE;
 
 VkBool32 VKTS_APIENTRY _wsiGatherNeededInstanceExtensions(const std::vector<VkExtensionProperties>& allInstanceExtensionProperties, const char* instanceExtensionNames[], uint32_t& instanceExtensionCount)
 {
-    g_hasXlib = VK_FALSE;
+	g_hasXcb = VK_FALSE;
 
     for (uint32_t i = 0; i < allInstanceExtensionProperties.size(); i++)
     {
-        if (strcmp(VK_KHR_XLIB_SURFACE_EXTENSION_NAME, allInstanceExtensionProperties[i].extensionName) == 0)
+        if (strcmp(VK_KHR_XCB_SURFACE_EXTENSION_NAME, allInstanceExtensionProperties[i].extensionName) == 0)
         {
-            instanceExtensionNames[instanceExtensionCount] = VK_KHR_XLIB_SURFACE_EXTENSION_NAME;
+            instanceExtensionNames[instanceExtensionCount] = VK_KHR_XCB_SURFACE_EXTENSION_NAME;
 
             instanceExtensionCount++;
 
-            g_hasXlib = VK_TRUE;
+            g_hasXcb = VK_TRUE;
 
             break;
         }
     }
 
-    if (!g_hasXlib)
+    if (!g_hasXcb)
     {
+    	g_hasXlib = VK_FALSE;
+
         for (uint32_t i = 0; i < allInstanceExtensionProperties.size(); i++)
         {
-            if (strcmp(VK_KHR_XCB_SURFACE_EXTENSION_NAME, allInstanceExtensionProperties[i].extensionName) == 0)
+            if (strcmp(VK_KHR_XLIB_SURFACE_EXTENSION_NAME, allInstanceExtensionProperties[i].extensionName) == 0)
             {
-                instanceExtensionNames[instanceExtensionCount] = VK_KHR_XCB_SURFACE_EXTENSION_NAME;
+                instanceExtensionNames[instanceExtensionCount] = VK_KHR_XLIB_SURFACE_EXTENSION_NAME;
 
                 instanceExtensionCount++;
 
-                g_hasXcb = VK_TRUE;
+                g_hasXlib = VK_TRUE;
 
                 break;
             }
         }
 
-        if (!g_hasXcb)
+        if (!g_hasXlib)
         {
             return VK_FALSE;
         }
@@ -89,21 +91,21 @@ VkBool32 VKTS_APIENTRY _wsiGatherNeededInstanceExtensions(const std::vector<VkEx
 
 VkBool32 VKTS_APIENTRY _wsiInitInstanceExtensions(const VkInstance instance)
 {
-    if (!instance || !(g_hasXlib || g_hasXcb))
+    if (!instance || !(g_hasXcb || g_hasXlib))
     {
         return VK_FALSE;
-    }
-
-    if (g_hasXlib)
-    {
-        GET_INSTANCE_PROC_ADDR(instance, CreateXlibSurfaceKHR);
-        GET_INSTANCE_PROC_ADDR(instance, GetPhysicalDeviceXlibPresentationSupportKHR);
     }
 
     if (g_hasXcb)
     {
         GET_INSTANCE_PROC_ADDR(instance, CreateXcbSurfaceKHR);
         GET_INSTANCE_PROC_ADDR(instance, GetPhysicalDeviceXcbPresentationSupportKHR);
+    }
+
+    if (g_hasXlib)
+    {
+        GET_INSTANCE_PROC_ADDR(instance, CreateXlibSurfaceKHR);
+        GET_INSTANCE_PROC_ADDR(instance, GetPhysicalDeviceXlibPresentationSupportKHR);
     }
 
     return VK_TRUE;
@@ -122,28 +124,6 @@ VkSurfaceKHR VKTS_APIENTRY _wsiSurfaceCreate(const VkInstance instance, VKTS_NAT
 
     VkSurfaceKHR surface;
 
-    if (g_hasXlib)
-    {
-    	VkXlibSurfaceCreateInfoKHR xlibSurfaceCreateInfoKHR;
-
-    	memset(&xlibSurfaceCreateInfoKHR, 0, sizeof(VkXlibSurfaceCreateInfoKHR));
-
-    	xlibSurfaceCreateInfoKHR.sType = VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR;
-
-    	xlibSurfaceCreateInfoKHR.flags = 0;
-    	xlibSurfaceCreateInfoKHR.dpy = nativeDisplay;
-    	xlibSurfaceCreateInfoKHR.window = nativeWindow;
-
-        result = vktsCreateXlibSurfaceKHR(instance, &xlibSurfaceCreateInfoKHR, nullptr, &surface);
-
-        if (result != VK_SUCCESS)
-        {
-            return VK_NULL_HANDLE;
-        }
-
-        return surface;
-    }
-
     if (g_hasXcb)
     {
         VkXcbSurfaceCreateInfoKHR xcbSurfaceCreateInfoKHR;
@@ -157,6 +137,28 @@ VkSurfaceKHR VKTS_APIENTRY _wsiSurfaceCreate(const VkInstance instance, VKTS_NAT
         xcbSurfaceCreateInfoKHR.window = (xcb_window_t)nativeWindow;
 
         result = vktsCreateXcbSurfaceKHR(instance, &xcbSurfaceCreateInfoKHR, nullptr, &surface);
+
+        if (result != VK_SUCCESS)
+        {
+            return VK_NULL_HANDLE;
+        }
+
+        return surface;
+    }
+
+    if (g_hasXlib)
+    {
+    	VkXlibSurfaceCreateInfoKHR xlibSurfaceCreateInfoKHR;
+
+    	memset(&xlibSurfaceCreateInfoKHR, 0, sizeof(VkXlibSurfaceCreateInfoKHR));
+
+    	xlibSurfaceCreateInfoKHR.sType = VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR;
+
+    	xlibSurfaceCreateInfoKHR.flags = 0;
+    	xlibSurfaceCreateInfoKHR.dpy = nativeDisplay;
+    	xlibSurfaceCreateInfoKHR.window = nativeWindow;
+
+        result = vktsCreateXlibSurfaceKHR(instance, &xlibSurfaceCreateInfoKHR, nullptr, &surface);
 
         if (result != VK_SUCCESS)
         {

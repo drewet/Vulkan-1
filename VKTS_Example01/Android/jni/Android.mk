@@ -8,8 +8,8 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := vulkan
 
-# TODO: Remove, as soon as Vulkan is added to the NDK and make configurable.
-LOCAL_SRC_FILES := C:/VulkanSDK/Android/x86/libvulkan.so
+# TODO: Remove, as soon as Vulkan is added to the NDK.
+LOCAL_SRC_FILES := C:/VulkanSDK/Android/$(TARGET_ARCH_ABI)/libvulkan.so
 
 include $(PREBUILT_SHARED_LIBRARY)
 
@@ -21,14 +21,12 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := VKTS
 
-# TODO: Make configurable.
-#LOCAL_SRC_FILES := $(LOCAL_PATH)/../../../VKTS/Android/obj/local/armeabi/libVKTS.a
-LOCAL_SRC_FILES := $(LOCAL_PATH)/../../../VKTS/Android/obj/local/x86/libVKTS.a
+LOCAL_SRC_FILES := $(LOCAL_PATH)/../../../VKTS/Android/obj/local/$(TARGET_ARCH_ABI)/libVKTS.a
 
 include $(PREBUILT_STATIC_LIBRARY)
 
 #
-# Example.
+# Test.
 #
 
 include $(CLEAR_VARS)
@@ -53,8 +51,8 @@ LOCAL_CPPFLAGS += -fexceptions
 
 LOCAL_C_INCLUDES:= $(LOCAL_PATH)/../../../VKTS/include/
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../VKTS_External/include
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../VKTS_External/include/freetype2
 
+# TODO: Remove, as soon as Vulkan is added to the NDK.
 LOCAL_C_INCLUDES += C:/VulkanSDK/1.0.3.1/Include 
 
 # Sources.
@@ -64,7 +62,7 @@ LOCAL_SRC_FILES := $(PROJECT_FILES)
 # Libs.
 
 # TODO: Later remove EGL.
-LOCAL_LDLIBS    := -landroid -lEGL
+LOCAL_LDLIBS    := -landroid
 
 LOCAL_STATIC_LIBRARIES := VKTS
 LOCAL_STATIC_LIBRARIES += android_native_app_glue

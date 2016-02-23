@@ -27,20 +27,7 @@
 #include "Example.hpp"
 
 Example::Example(const int32_t displayIndex, const int32_t windowIndex) :
-		IUpdateThread(),
-		displayIndex(displayIndex),
-		windowIndex(windowIndex),
-		instance(VK_NULL_HANDLE),
-		physicalDevice(VK_NULL_HANDLE),
-		device(VK_NULL_HANDLE),
-		surface(nullptr) ,
-		queueFamilyIndex(0),
-		queue(VK_NULL_HANDLE),
-		commandPool(VK_NULL_HANDLE),
-		imageAcquiredSemaphore(VK_NULL_HANDLE),
-		renderingCompleteSemaphore(VK_NULL_HANDLE),
-		swapchain(VK_NULL_HANDLE),
-		renderPass(VK_NULL_HANDLE)
+		IUpdateThread(), displayIndex(displayIndex), windowIndex(windowIndex), instance(VK_NULL_HANDLE), physicalDevice(VK_NULL_HANDLE), device(VK_NULL_HANDLE), surface(nullptr) , queueFamilyIndex(0), queue(VK_NULL_HANDLE), commandPool(VK_NULL_HANDLE), imageAcquiredSemaphore(VK_NULL_HANDLE), renderingCompleteSemaphore(VK_NULL_HANDLE), swapchain(VK_NULL_HANDLE), renderPass(VK_NULL_HANDLE)
 {
 	memset(&swapchainCreateInfo, 0, sizeof(VkSwapchainCreateInfoKHR));
 

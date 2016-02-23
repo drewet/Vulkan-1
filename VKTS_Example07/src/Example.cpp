@@ -27,29 +27,7 @@
 #include "Example.hpp"
 
 Example::Example(const int32_t displayIndex, const int32_t windowIndex) :
-		IUpdateThread(),
-		displayIndex(displayIndex),
-		windowIndex(windowIndex),
-		initialResources(nullptr),
-		surface(nullptr),
-		commandPool(nullptr),
-        imageAcquiredSemaphore(nullptr),
-        renderingCompleteSemaphore(nullptr),
-		descriptorSetLayout(nullptr),
-		vertexViewProjectionUniformBuffer(nullptr),
-		fragmentUniformBuffer(nullptr),
-		vertexShaderModule(nullptr),
-		geometryShaderModule(nullptr),
-		fragmentShaderModule(nullptr),
-		pipelineCache(nullptr),
-		pipelineLayout(nullptr),
-		sceneContext(nullptr),
-		scene(nullptr),
-		swapchain(nullptr),
-		renderPass(nullptr),
-		pipeline(nullptr),
-		depthTexture(nullptr),
-		depthStencilImageView(nullptr)
+		IUpdateThread(), displayIndex(displayIndex), windowIndex(windowIndex), initialResources(nullptr), surface(nullptr), commandPool(nullptr), imageAcquiredSemaphore(nullptr), renderingCompleteSemaphore(nullptr), descriptorSetLayout(nullptr), vertexViewProjectionUniformBuffer(nullptr), fragmentUniformBuffer(nullptr), vertexShaderModule(nullptr), tessellationControlShaderModule(nullptr), tessellationEvaluationShaderModule(nullptr), geometryShaderModule(nullptr), fragmentShaderModule(nullptr), pipelineCache(nullptr), pipelineLayout(nullptr), sceneContext(nullptr), scene(nullptr), swapchain(nullptr), renderPass(nullptr), pipeline(nullptr), depthTexture(nullptr), depthStencilImageView(nullptr)
 {
 	for (int32_t i = 0; i < VKTS_NUMBER_BUFFERS; i++)
 	{
@@ -187,11 +165,7 @@ VkBool32 Example::buildFramebuffer(const int32_t usedBuffer)
 	imageViews[0] = swapchainImageView[usedBuffer]->getImageView();
 	imageViews[1] = depthStencilImageView->getImageView();
 
-	framebuffer[usedBuffer] = vkts::framebufferCreate(
-			initialResources->getDevice()->getDevice(), 0,
-			renderPass->getRenderPass(), 2, imageViews,
-			swapchain->getImageExtent().width,
-			swapchain->getImageExtent().height, 1);
+	framebuffer[usedBuffer] = vkts::framebufferCreate(initialResources->getDevice()->getDevice(), 0, renderPass->getRenderPass(), 2, imageViews, swapchain->getImageExtent().width, swapchain->getImageExtent().height, 1);
 
 	if (!framebuffer[usedBuffer].get())
 	{
@@ -208,11 +182,7 @@ VkBool32 Example::buildSwapchainImageView(const int32_t usedBuffer)
 	VkComponentMapping componentMapping = { VK_COMPONENT_SWIZZLE_R, VK_COMPONENT_SWIZZLE_G, VK_COMPONENT_SWIZZLE_B, VK_COMPONENT_SWIZZLE_A };
 	VkImageSubresourceRange imageSubresourceRange = { VK_IMAGE_ASPECT_COLOR_BIT, 0, 1, 0, 1 };
 
-	swapchainImageView[usedBuffer] = vkts::imageViewCreate(
-			initialResources->getDevice()->getDevice(), 0,
-			swapchain->getAllSwapchainImages()[usedBuffer],
-			VK_IMAGE_VIEW_TYPE_2D, swapchain->getImageFormat(), componentMapping,
-			imageSubresourceRange);
+	swapchainImageView[usedBuffer] = vkts::imageViewCreate(initialResources->getDevice()->getDevice(), 0, swapchain->getAllSwapchainImages()[usedBuffer], VK_IMAGE_VIEW_TYPE_2D, swapchain->getImageFormat(), componentMapping, imageSubresourceRange);
 
 	if (!swapchainImageView[usedBuffer].get())
 	{
@@ -330,12 +300,7 @@ VkBool32 Example::buildDepthStencilImageView()
 	VkComponentMapping componentMapping = { VK_COMPONENT_SWIZZLE_IDENTITY, VK_COMPONENT_SWIZZLE_IDENTITY, VK_COMPONENT_SWIZZLE_IDENTITY, VK_COMPONENT_SWIZZLE_IDENTITY };
 	VkImageSubresourceRange imageSubresourceRange = { VK_IMAGE_ASPECT_DEPTH_BIT, 0, 1, 0, 1 };
 
-	depthStencilImageView = vkts::imageViewCreate(
-			initialResources->getDevice()->getDevice(), 0,
-			depthTexture->getImage()->getImage(),
-			VK_IMAGE_VIEW_TYPE_2D,
-			depthTexture->getImage()->getFormat(), componentMapping,
-			imageSubresourceRange);
+	depthStencilImageView = vkts::imageViewCreate(initialResources->getDevice()->getDevice(), 0, depthTexture->getImage()->getImage(), VK_IMAGE_VIEW_TYPE_2D, depthTexture->getImage()->getFormat(), componentMapping, imageSubresourceRange);
 
 	if (!depthStencilImageView.get())
 	{
@@ -401,8 +366,8 @@ VkBool32 Example::buildPipeline()
 	pipelineShaderStageCreateInfo[1].sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
 
 	pipelineShaderStageCreateInfo[1].flags = 0;
-	pipelineShaderStageCreateInfo[1].stage = VK_SHADER_STAGE_GEOMETRY_BIT;
-	pipelineShaderStageCreateInfo[1].module = geometryShaderModule->getShaderModule();
+	pipelineShaderStageCreateInfo[1].stage = VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT;
+	pipelineShaderStageCreateInfo[1].module = tessellationControlShaderModule->getShaderModule();
 	pipelineShaderStageCreateInfo[1].pName = "main";
 	pipelineShaderStageCreateInfo[1].pSpecializationInfo = nullptr;
 
@@ -410,10 +375,28 @@ VkBool32 Example::buildPipeline()
 	pipelineShaderStageCreateInfo[2].sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
 
 	pipelineShaderStageCreateInfo[2].flags = 0;
-	pipelineShaderStageCreateInfo[2].stage = VK_SHADER_STAGE_FRAGMENT_BIT;
-	pipelineShaderStageCreateInfo[2].module = fragmentShaderModule->getShaderModule();
+	pipelineShaderStageCreateInfo[2].stage = VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT;
+	pipelineShaderStageCreateInfo[2].module = tessellationEvaluationShaderModule->getShaderModule();
 	pipelineShaderStageCreateInfo[2].pName = "main";
 	pipelineShaderStageCreateInfo[2].pSpecializationInfo = nullptr;
+
+
+	pipelineShaderStageCreateInfo[3].sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
+
+	pipelineShaderStageCreateInfo[3].flags = 0;
+	pipelineShaderStageCreateInfo[3].stage = VK_SHADER_STAGE_GEOMETRY_BIT;
+	pipelineShaderStageCreateInfo[3].module = geometryShaderModule->getShaderModule();
+	pipelineShaderStageCreateInfo[3].pName = "main";
+	pipelineShaderStageCreateInfo[3].pSpecializationInfo = nullptr;
+
+
+	pipelineShaderStageCreateInfo[4].sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
+
+	pipelineShaderStageCreateInfo[4].flags = 0;
+	pipelineShaderStageCreateInfo[4].stage = VK_SHADER_STAGE_FRAGMENT_BIT;
+	pipelineShaderStageCreateInfo[4].module = fragmentShaderModule->getShaderModule();
+	pipelineShaderStageCreateInfo[4].pName = "main";
+	pipelineShaderStageCreateInfo[4].pSpecializationInfo = nullptr;
 
 	//
 
@@ -478,8 +461,19 @@ VkBool32 Example::buildPipeline()
 	pipelineInputAssemblyStateCreateInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO;
 
 	pipelineInputAssemblyStateCreateInfo.flags = 0;
-	pipelineInputAssemblyStateCreateInfo.topology = VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST;
+	pipelineInputAssemblyStateCreateInfo.topology = VK_PRIMITIVE_TOPOLOGY_PATCH_LIST;
 	pipelineInputAssemblyStateCreateInfo.primitiveRestartEnable = VK_FALSE;
+
+	//
+
+	VkPipelineTessellationStateCreateInfo pipelineTessellationStateCreateInfo;
+
+	memset(&pipelineTessellationStateCreateInfo, 0, sizeof(VkPipelineTessellationStateCreateInfo));
+
+	pipelineTessellationStateCreateInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO;
+
+	pipelineTessellationStateCreateInfo.flags = 0;
+	pipelineTessellationStateCreateInfo.patchControlPoints = 3;
 
 	//
 
@@ -636,7 +630,7 @@ VkBool32 Example::buildPipeline()
 	graphicsPipelineCreateInfo.pStages = pipelineShaderStageCreateInfo;
 	graphicsPipelineCreateInfo.pVertexInputState = &pipelineVertexInputCreateInfo;
 	graphicsPipelineCreateInfo.pInputAssemblyState = &pipelineInputAssemblyStateCreateInfo;
-	graphicsPipelineCreateInfo.pTessellationState = nullptr;
+	graphicsPipelineCreateInfo.pTessellationState = &pipelineTessellationStateCreateInfo;
 	graphicsPipelineCreateInfo.pViewportState = &pipelineViewportStateCreateInfo;
 	graphicsPipelineCreateInfo.pRasterizationState = &pipelineRasterizationStateCreateInfo;
 	graphicsPipelineCreateInfo.pMultisampleState = &pipelineMultisampleStateCreateInfo;
@@ -765,13 +759,13 @@ VkBool32 Example::buildDescriptorSetLayout()
 	descriptorSetLayoutBinding[VKTS_BINDING_UNIFORM_BUFFER_VERTEX_VIEWPROJECTION].binding = VKTS_BINDING_UNIFORM_BUFFER_VERTEX_VIEWPROJECTION;
 	descriptorSetLayoutBinding[VKTS_BINDING_UNIFORM_BUFFER_VERTEX_VIEWPROJECTION].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
 	descriptorSetLayoutBinding[VKTS_BINDING_UNIFORM_BUFFER_VERTEX_VIEWPROJECTION].descriptorCount = 1;
-	descriptorSetLayoutBinding[VKTS_BINDING_UNIFORM_BUFFER_VERTEX_VIEWPROJECTION].stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
+	descriptorSetLayoutBinding[VKTS_BINDING_UNIFORM_BUFFER_VERTEX_VIEWPROJECTION].stageFlags = VK_SHADER_STAGE_GEOMETRY_BIT;
 	descriptorSetLayoutBinding[VKTS_BINDING_UNIFORM_BUFFER_VERTEX_VIEWPROJECTION].pImmutableSamplers = nullptr;
 
 	descriptorSetLayoutBinding[VKTS_BINDING_UNIFORM_BUFFER_VERTEX_TRANSFORM].binding = VKTS_BINDING_UNIFORM_BUFFER_VERTEX_TRANSFORM;
 	descriptorSetLayoutBinding[VKTS_BINDING_UNIFORM_BUFFER_VERTEX_TRANSFORM].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
 	descriptorSetLayoutBinding[VKTS_BINDING_UNIFORM_BUFFER_VERTEX_TRANSFORM].descriptorCount = 1;
-	descriptorSetLayoutBinding[VKTS_BINDING_UNIFORM_BUFFER_VERTEX_TRANSFORM].stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
+	descriptorSetLayoutBinding[VKTS_BINDING_UNIFORM_BUFFER_VERTEX_TRANSFORM].stageFlags = VK_SHADER_STAGE_GEOMETRY_BIT;
 	descriptorSetLayoutBinding[VKTS_BINDING_UNIFORM_BUFFER_VERTEX_TRANSFORM].pImmutableSamplers = nullptr;
 
 	descriptorSetLayoutBinding[VKTS_BINDING_UNIFORM_BUFFER_FRAGMENT_LIGHT].binding = VKTS_BINDING_UNIFORM_BUFFER_FRAGMENT_LIGHT;
@@ -816,6 +810,24 @@ VkBool32 Example::buildShader()
 		return VK_FALSE;
 	}
 
+	auto tessellationControlShaderBinary = vkts::fileLoadBinary(VKTS_TESSELLATION_CONTROL_SHADER_NAME);
+
+	if (!tessellationControlShaderBinary.get())
+	{
+		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not load tessellation control shader: '%s'", VKTS_TESSELLATION_CONTROL_SHADER_NAME);
+
+		return VK_FALSE;
+	}
+
+	auto tessellationEvaluationShaderBinary = vkts::fileLoadBinary(VKTS_TESSELLATION_EVALUATION_SHADER_NAME);
+
+	if (!tessellationControlShaderBinary.get())
+	{
+		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not load tessellation evaluationshader: '%s'", VKTS_TESSELLATION_EVALUATION_SHADER_NAME);
+
+		return VK_FALSE;
+	}
+
 	auto geometryShaderBinary = vkts::fileLoadBinary(VKTS_GEOMETRY_SHADER_NAME);
 
 	if (!geometryShaderBinary.get())
@@ -841,6 +853,24 @@ VkBool32 Example::buildShader()
 	if (!vertexShaderModule.get())
 	{
 		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not create vertex shader module.");
+
+		return VK_FALSE;
+	}
+
+	tessellationControlShaderModule = vkts::shaderModuleCreate(initialResources->getDevice()->getDevice(), 0, tessellationControlShaderBinary->getSize(), (uint32_t*)tessellationControlShaderBinary->getData());
+
+	if (!tessellationControlShaderModule.get())
+	{
+		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not create tessellation control shader module.");
+
+		return VK_FALSE;
+	}
+
+	tessellationEvaluationShaderModule = vkts::shaderModuleCreate(initialResources->getDevice()->getDevice(), 0, tessellationEvaluationShaderBinary->getSize(), (uint32_t*)tessellationEvaluationShaderBinary->getData());
+
+	if (!tessellationControlShaderModule.get())
+	{
+		vkts::logPrint(VKTS_LOG_ERROR, "Example: Could not create tessellation evaluation shader module.");
 
 		return VK_FALSE;
 	}
@@ -913,8 +943,7 @@ VkBool32 Example::buildUniformBuffers()
 	return VK_TRUE;
 }
 
-VkBool32 Example::buildResources(
-		const vkts::IUpdateThreadContext& updateContext)
+VkBool32 Example::buildResources(const vkts::IUpdateThreadContext& updateContext)
 {
 	VkResult result;
 
@@ -929,12 +958,7 @@ VkBool32 Example::buildResources(
 
 	VkSwapchainKHR oldSwapchain = lastSwapchain.get() ? lastSwapchain->getSwapchain() : VK_NULL_HANDLE;
 
-	swapchain = vkts::wsiSwapchainCreate(initialResources->getPhysicalDevice()->getPhysicalDevice(), initialResources->getDevice()->getDevice(),
-			0, surface->getSurface(),
-			VKTS_NUMBER_BUFFERS, extent2D, 1, VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT,
-			VK_SHARING_MODE_EXCLUSIVE, 0, nullptr, VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR,
-			VK_TRUE,
-			oldSwapchain);
+	swapchain = vkts::wsiSwapchainCreate(initialResources->getPhysicalDevice()->getPhysicalDevice(), initialResources->getDevice()->getDevice(), 0, surface->getSurface(), VKTS_NUMBER_BUFFERS, extent2D, 1, VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT, VK_SHARING_MODE_EXCLUSIVE, 0, nullptr, VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR, VK_TRUE, oldSwapchain);
 
 	if (!swapchain.get())
 	{
@@ -1093,8 +1117,7 @@ VkBool32 Example::buildResources(
 	return VK_TRUE;
 }
 
-void Example::terminateResources(
-		const vkts::IUpdateThreadContext& updateContext)
+void Example::terminateResources(const vkts::IUpdateThreadContext& updateContext)
 {
 	if (initialResources.get())
 	{
@@ -1193,6 +1216,22 @@ VkBool32 Example::init(const vkts::IUpdateThreadContext& updateContext)
 
 		return VK_FALSE;
 	}
+
+	//
+
+	VkPhysicalDeviceFeatures physicalDeviceFeatures;
+
+	physicalDevice->getPhysicalDeviceFeatures(physicalDeviceFeatures);
+
+	// Check, if geometry and tessellation shader are available.
+	if (!physicalDeviceFeatures.geometryShader || !physicalDeviceFeatures.tessellationShader)
+	{
+		vkts::logPrint(VKTS_LOG_ERROR, "Example: Physical device not capable of geometry and tessellation shaders.");
+
+		return VK_FALSE;
+	}
+
+	//
 
 
 	if (!vkts::wsiGatherNeededDeviceExtensions(physicalDevice->getPhysicalDevice()))
@@ -1406,7 +1445,7 @@ VkBool32 Example::update(const vkts::IUpdateThreadContext& updateContext)
 
 		projectionMatrix = vkts::perspectiveMat4(45.0f, (float) dimension.x / (float) dimension.y, 1.0f, 100.0f);
 
-		viewMatrix = vkts::lookAtMat4(0.0f, 2.0f, 8.0f, 0.0f, 2.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+		viewMatrix = vkts::lookAtMat4(0.0f, 12.0f, 16.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 
 		if (!vertexViewProjectionUniformBuffer->upload(0 * sizeof(float) * 16, 0, projectionMatrix))
 		{
@@ -1566,6 +1605,16 @@ void Example::terminate(const vkts::IUpdateThreadContext& updateContext)
 			if (vertexShaderModule.get())
 			{
 				vertexShaderModule->destroy();
+			}
+
+			if (tessellationControlShaderModule.get())
+			{
+				tessellationControlShaderModule->destroy();
+			}
+
+			if (tessellationEvaluationShaderModule.get())
+			{
+				tessellationEvaluationShaderModule->destroy();
 			}
 
 			if (geometryShaderModule.get())

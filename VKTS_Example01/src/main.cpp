@@ -67,11 +67,7 @@ int main()
 		return -1;
 	}
 
-	auto window = vkts::visualCreateWindow(display,
-	VKTS_EXAMPLE_NAME, 1024, 768,
-	VK_FALSE,
-	VK_TRUE,
-	VK_FALSE).lock();
+	auto window = vkts::visualCreateWindow(display, VKTS_EXAMPLE_NAME, 1024, 768, VK_FALSE, VK_TRUE, VK_FALSE).lock();
 
 	if (!window.get())
 	{
@@ -96,8 +92,7 @@ int main()
 	//
 
 	// Single threaded application, so it is safe to pass display and window.
-	vkts::IUpdateThreadSP example = vkts::IUpdateThreadSP(
-			new Example(display->getIndex(), window->getIndex()));
+	vkts::IUpdateThreadSP example = vkts::IUpdateThreadSP(new Example(display->getIndex(), window->getIndex()));
 
 	if (!example.get())
 	{

@@ -31,6 +31,7 @@
 
 #include <android_native_app_glue.h>
 #include <android/window.h>
+#include <stdlib.h>
 
 namespace vkts
 {
