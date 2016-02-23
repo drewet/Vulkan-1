@@ -92,6 +92,21 @@ public:
         }
         while (!done);
     }
+
+    VkBool32 resetDone()
+    {
+    	std::unique_lock<std::mutex> taskLock(taskMutex);
+
+    	if (done)
+    	{
+    		done = VK_FALSE;
+
+    		return VK_TRUE;
+    	}
+
+    	return VK_FALSE;
+    }
+
 };
 
 typedef std::shared_ptr<ITask> ITaskSP;

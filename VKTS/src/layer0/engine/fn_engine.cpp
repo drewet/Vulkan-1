@@ -52,7 +52,7 @@ static std::multimap<IUpdateThreadSP, const NativeDisplaySP> g_allAttachedDispla
 
 static std::multimap<IUpdateThreadSP, const NativeWindowSP> g_allAttachedWindows;
 
-static int32_t g_taskExecutorCount = 0;
+static uint32_t g_taskExecutorCount = 0;
 
 VkBool32 VKTS_APIENTRY engineInit()
 {
@@ -279,7 +279,7 @@ VkBool32 VKTS_APIENTRY engineRun()
     SmartPointerVector<TaskExecutorSP> realTaskExecutors;
     SmartPointerVector<ThreadSP> realTaskThreads;
 
-    for (int32_t i = 0; i < g_taskExecutorCount; i++)
+    for (uint32_t i = 0; i < g_taskExecutorCount; i++)
     {
         auto currentTaskExecutor = TaskExecutorSP(new TaskExecutor(i, executorSync, taskQueue));
 
@@ -303,6 +303,8 @@ VkBool32 VKTS_APIENTRY engineRun()
 
         realTaskExecutors.append(currentTaskExecutor);
         realTaskThreads.append(currentRealThread);
+
+        logPrint(VKTS_LOG_INFO, "Engine: Task %d started.", currentTaskExecutor->getIndex());
     }
 
     //
@@ -418,6 +420,26 @@ VkBool32 VKTS_APIENTRY engineRun()
 
     //
 
+    if (taskQueue.get())
+    {
+    	// Empty the queue.
+    	// As no update thread can feed the queue anymore, it is save to call reset.
+
+    	taskQueue->reset();
+
+    	//
+
+    	ITaskSP stopTask;
+
+        logPrint(VKTS_LOG_SEVERE, "Engine: Disabling task queue.");
+
+    	for (uint32_t i = 0; i < g_taskExecutorCount; i++)
+    	{
+    		// Send an empty task to the queue, to exit the thread.
+    		taskQueue->addTask(stopTask);
+    	}
+    }
+
     // Wait for all tasks to finish in the reverse order they were created.
     for (auto reverseIndex = static_cast<int32_t>(realTaskThreads.size()) - 1; reverseIndex >= 0; reverseIndex--)
     {
@@ -445,7 +467,7 @@ int32_t VKTS_APIENTRY engineGetNumberUpdateThreads()
     return static_cast<int32_t>(g_allUpdateThreads.size());
 }
 
-VkBool32 VKTS_APIENTRY engineSetTaskExecutorCount(const int32_t count)
+VkBool32 VKTS_APIENTRY engineSetTaskExecutorCount(const uint32_t count)
 {
     if (count < 0)
     {
@@ -459,7 +481,7 @@ VkBool32 VKTS_APIENTRY engineSetTaskExecutorCount(const int32_t count)
     return VK_TRUE;
 }
 
-int32_t VKTS_APIENTRY engineGetTaskExecutorCount()
+uint32_t VKTS_APIENTRY engineGetTaskExecutorCount()
 {
     return g_taskExecutorCount;
 }

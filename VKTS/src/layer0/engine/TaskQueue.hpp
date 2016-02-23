@@ -89,6 +89,8 @@ public:
 
     VkBool32 receiveTask(ITaskSP& task);
 
+    void reset();
+
 };
 
 typedef std::shared_ptr<TaskQueue> TaskQueueSP;

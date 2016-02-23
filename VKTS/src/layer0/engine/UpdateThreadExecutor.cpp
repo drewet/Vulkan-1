@@ -59,10 +59,6 @@ void UpdateThreadExecutor::run() const
         logPrint(VKTS_LOG_SEVERE, "UpdateThreadExecutor %d: Killing barrier.", index);
 
         barrierKill();
-
-        logPrint(VKTS_LOG_SEVERE, "UpdateThreadExecutor %d: Disabling task queue.", index);
-
-        updateThreadContext->sendTask(ITaskSP());
     }
     else
     {

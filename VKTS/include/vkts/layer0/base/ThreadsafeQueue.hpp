@@ -129,8 +129,7 @@ public:
     void waitAndTake(ELEMENT& result)
     {
         std::unique_lock<std::mutex> queueLock(queueMutex);
-        queueConditionVariable.wait(queueLock, [this]
-        {   return !allElements.empty();});
+        queueConditionVariable.wait(queueLock, [this] {return !allElements.empty();});
 
         result = allElements.front();
         allElements.pop();

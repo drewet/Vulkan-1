@@ -74,6 +74,8 @@ How to build:
 Changelog:
 ----------
 
+02/23/2016 - Fixed and improved the task executor engine.
+
 02/21/2016 - Updated to GLM 0.9.7.3.
            - Extended file load and save functionality for Android devices.
 
